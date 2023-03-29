@@ -11,6 +11,6 @@
     "sqlite": "^4.1.2"
   },
   "scripts": {
-    "start":"node serverside.js"
+    "start":"node controller/serverside.js"
   }
 }
