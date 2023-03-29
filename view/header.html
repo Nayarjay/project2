@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Kiddy game</title>
+    <link href="./header.scss"  rel="stylesheet" type="text/css" >
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js" defer></script>
+  </head>
+
+  <body >
+
+    <nav style="margin-bottom: 0.5%; margin-top: -1.5%;" class="navbar">
+    
+      <style>
+        ul {
+          display: inline;
+          list-style: none;
+        }
+        li {
+          display: inline-block;
+          margin-right: 10px; /* optional - add space between items */
+        }
+        
+       
+        .navbar{
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 0px 10px rgba(0, 0, 0, 0.1) inset;
+          background-color: rgb(253, 240, 213);
+          position: fixed;
+          top: 0px;
+          z-index: 999;
+          width: 100%;
+        }
+      </style>
+     
+    
+      <div style="margin-left: 25%;" >
+        <ul  >
+          <div class="topnav" >
+          
+            
+            <!--<li><a class="active" href="/">Home</a></li>-->
+            <li >
+
+              <form action="/"  >
+             
+                <li><input type="submit" value="HOME"></li>
+              </form>
+            
+           </li> 
+
+            <li>
+
+
+              <div id="PC_Game" style="display: none;">
+
+                <select id ="myDropdown" class="selectpicker" >
+                
+                
+                  <option value="" selected disabled>Select a game Tag</option>
+                  <option value="/catalog/card/pc">Card Games</option>
+                  <option value="/catalog/battle-royale/pc">Battle Royale</option>
+                  <option value="/catalog/strategy/pc">Strategy</option>
+                  <option value="/catalog/anime/pc">Anime</option>
+                  <option value="/catalog/fantasy/pc">Fantasy</option>
+                  <option value="/catalog/sci-fi/pc">Sci-Fi</option>
+                  <option value="/catalog/racing/pc">Racing</option>
+                  <option value="/catalog/fighting/pc">Fighting</option>
+                  <option value="/catalog/social/pc">Social</option>
+                  <option value="/catalog/sports/pc">Sports</option>
+                  <option value="/catalog/martial-arts/pc">martial art</option>
+                  <option value="/catalog/mmorpg/pc">MMO</option>
+  
+              </select>
+  
+              </div>
+
+
+              <div  id="Browser_Game" >
+                <select id ="myDropdown2" class="selectpicker">
+                  <option value="" selected disabled>Select a game Tag</option>
+                  <option value="/catalog/strategy/browser">Strategy</option>
+                  <option value="/catalog/fantasy/browser">Fantasy</option>
+                  <option value="/catalog/sci-fi/browser">Sci-Fi</option>
+                  <option value="/catalog/racing/browser">Racing</option>
+                  <option value="/catalog/social/browser">Social</option>
+                  <option value="/catalog/sports/browser">Sports</option>
+                  <option value="/catalog/mmorpg/browser">MMO</option>
+  
+  
+                </select>
+             
+  
+  
+              </div>
+
+
+           
+
+              
+
+            </li>
+
+
+            <li><input id="plateform" type="checkbox" data-toggle="switchbutton" checked data-onlabel="PC " data-offlabel="Browser " checked data-onstyle="info" data-offstyle="secondary"></li>
+            <li>
+              <form action="/search"  >
+                <li><input  type="text" placeholder="Rechercher" name="query" aria-label="Search" value="{{query}}"></li>
+                <li><input type="submit" value="Rechercher"></li>
+              </form>
+
+            </li>
+           
+
+
+
+            
+
+
+          
+
+           
+          
+          
+            
+            <script>
+              const change = document.getElementById("plateform");
+              const dropdown = document.getElementById("myDropdown");
+              const dropdown2 = document.getElementById("myDropdown2");
+              const myDiv = document.getElementById("PC_Game");
+              const myDiv2 = document.getElementById("Browser_Game");
+              const togle = document.getElementById("plateform");
+              myDiv.style.display = "block";
+              myDiv2.style.display = "none";
+              dropdown.addEventListener("change", function() {
+                //console.log("Dropdown change event fired");
+                const selectedOption = dropdown.options[dropdown.selectedIndex].value;
+                //console.log("Selected option: " + selectedOption);
+                window.location.href = selectedOption;
+              });
+              dropdown2.addEventListener("change", function() {
+                //console.log("Dropdown change event fired");
+                const selectedOption = dropdown2.options[dropdown2.selectedIndex].value;
+                //console.log("Selected option: " + selectedOption);
+                window.location.href = selectedOption;
+              });
+
+              change.addEventListener("change", function() {
+                if (togle.checked) {
+                  console.log("PC platform selected");
+                  myDiv2.style.display = "none";
+                  myDiv.style.display = "block";
+                  
+                } else {
+                  console.log("Browser platform selected");
+               
+
+                 myDiv.style.display = "none";
+                  myDiv2.style.display ="block"
+                }
+              });
+
+              
+
+
+            </script>
+            
+            
+            
+            
+            {{^authenticated}}
+            <li>
+              <div class="text-end">
+                <li style="margin-top: 2%;"><a href="/login"> <button id='conect-btn' class="btn btn-outline-light me-2" >Se connecter</button></a> </li>
+                <li style="margin-top: 2%;"><a href="/new_user"> <button id='create_user-btn' class="btn btn-warning">creer un compte</button></a></li>
+              </div>
+
+            </li>
+            
+            {{/authenticated}}
+
+
+            
+
+
+
+            {{#authenticated}}
+           
+            <li > 
+                
+              <form action="/catalogFlash"  >
+               
+                <li><input type="submit" value="Flash Games"></li>
+               
+              </form>
+              
+          
+            </li>
+
+             <!--<li><a class="active" href="/catalogFlash">Flash Games</a></li>-->
+
+            <li > 
+                
+              <form action="/favorite"  >
+               
+                <li><input type="submit" value="Favorite"></li>
+               
+              </form>
+          
+            </li>
+            
+            <li ><h1>Welcome, {{name}}</h1></li>
+            <li>
+
+              <div class="text-end" >
+            
+              
+                <li  ><button id='logout-btn' >disconnect</button></li>
+                
+              </div>
+
+            </li>
+         
+            
+            {{/authenticated}}
+          </div>
+         
+         
+       
+
+        </ul>
+       
+      </div>
+
+      <script>
+        document.getElementById('logout-btn').addEventListener('click', function() {
+          fetch('/logout', { method: 'POST' })
+            .then(function() {
+              window.location.href = '/';
+            });
+        });
+
+
+
+        document.getElementById('flashGame-btn').addEventListener('click', function() {
+          fetch('/logout', { method: 'GET' })
+            .then(function() {
+              window.location.href = '/catalogFlash';
+            });
+        });
+      </script>
+
+    
+    </nav>
+
+
+
+    <style>
+
+            /* Style the links inside the navigation bar */
+      .topnav a {
+        float: left;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      /* Change the color of links on hover */
+      .topnav a:hover {
+        background-color: rgb(134, 25, 25);
+        color: rgb(255, 255, 255);
+      }
+
+        
+    </style>

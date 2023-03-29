@@ -1,0 +1,47 @@
+{{> header}}
+
+<div style="margin-left: 35%;">
+  <div>
+    <h1>Catalog</h1>
+  </div>
+</div>
+
+<div class="album py-5 " style="background-color: rgb(102, 155, 188) ;">
+
+  <div class="container">
+
+
+   
+    <div class="row">
+      {{#results}}
+
+        <div class="col-md-4" >
+          <a href="/read/{{id}}">
+            <div class="card mb-4 box-shadow">
+              <img src="{{thumbnail}}" class="card-img-top" height="400">
+              <div class="card-body">
+                  <p class="card-text" class="card-text" style="margin-left: 20%;" >{{title}}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+       
+      {{/results}}
+    </div>
+  
+    {{#next_page}}
+    <div>
+      <div>
+        <a href="/search?query={{query}}&page={{next_page}}">Page suivante</a>
+      </div>
+    </div>
+    {{/next_page}}
+
+
+  </div>
+
+</div>
+ 
+
+
+{{> footer}}

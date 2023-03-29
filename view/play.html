@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+{{> header}}
+
+
+    
+
+    <div >
+            
+
+
+            <div class="gamebody">
+                <iframe id="inlineFrameExample"
+                    title="Inline Frame Example"
+                    width="900"
+                    height="600"
+                    name="{{id}}"
+                    src="{{url}}">
+                </iframe>
+
+            </div>
+               
+            
+
+
+    </div>
+
+
+
+{{> footer}}
+
+
+
+
+<script>
+    function resizeIframe() {
+    
+    var iframe = document.getElementById("inlineFrameExample");
+    if(iframe.name == '2' || iframe.name == '8'  ){
+        iframe.style.height = 400 + "px";
+        iframe.style.width = 550 + "px";
+    }
+    
+    }
+    resizeIframe();
+</script>
+
+
+<style>
+    .gamebody{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: rgb(102, 155, 188);
+
+    }
+    .body{
+        background-color: rgb(102, 155, 188);
+    }
+
+    #inlineFrameExample {
+        display: block;
+    }
+    
+</style>
+
+</html>
+
+
+
+

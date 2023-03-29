@@ -1,0 +1,47 @@
+{{> header}}
+  <div class="grid">
+    <div class="container">
+      
+      <div class="row">
+      
+        <div  class="col-md-4" >
+          <h1>tritre {{title}}</h1>
+          
+          
+         
+          <p>descriptions {{description}}</p>
+          <p>Link: {{game_url}}</p>
+  
+          
+  
+        </div>
+        <div class="col-md-4" style="margin-top: 5%;margin-left: 5%;">  <img src="{{thumbnail}}" ></div>
+  
+      </div>
+     
+    </div>
+
+    {{#authenticated}}
+    
+
+      {{^gameExists}}
+        <form method="POST" action="/add_favorite" style="margin-left: 50%;">
+          <input type="hidden" name="idgame" value="{{id}}">
+          <input type="hidden" name="title" value="{{title}}">
+          <input type="hidden" name="thumbnail" value="{{thumbnail}}">
+          <input type="hidden" name="description" value="{{short_description}}">
+        
+          <button type="submit">add favorite</button>
+        </form>
+
+      
+
+      {{/gameExists}}
+    
+      {{/authenticated}}
+    
+   
+  </div>
+  
+ 
+{{> footer}}
