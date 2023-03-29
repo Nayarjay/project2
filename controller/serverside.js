@@ -14,7 +14,7 @@ const cookieSession = require('cookie-session');
 var express = require('express');
 var mustache = require('mustache-express');
 
-var model = require('../model/model');
+var model = require('./model/model');
 var app = express();
 
 
