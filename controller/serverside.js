@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.engine('html', mustache());
 app.set('view engine', 'html');
-app.set('views', '../view');
+app.set('views', './view');
 
 app.use(cookieSession({
   secret: 'mot-de-passe-du-cookie',
