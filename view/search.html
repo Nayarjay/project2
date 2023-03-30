@@ -1,52 +1,69 @@
 {{> header}}
 
-<div style="margin-left: 35%;">
-  <div>
-    <h1>{{num_found}} recettes trouvées {{#page}} (page {{page}}/{{num_pages}}) {{/page}}</h1>
-  </div>
-</div>
 
-<div class="album py-5" style="background-color: rgb(102, 155, 188) ;">
+
+
+<div class="album py-5 " style="margin-top: 3.8%;background-color: rgb(102, 155, 188) ;">
 
   <div class="container">
-
+    <div >
+  
+        <h1 class="text-center" style="color: rgb(120, 0, 0);margin-bottom: 2%;" id="title">Flash Games</h1>
+      
+    </div>
 
    
     <div class="row">
       {{#results}}
 
-        <div class="col-md-4" >
-          <a href="/read/{{id}}">
-            <div class="card mb-4 box-shadow">
-              <img src="{{thumbnail}}" class="card-img-top" height="400">
-              <div class="card-body">
-                  <p class="card-text" class="card-text" style="margin-left: 20%;" >{{title}}</p>
+        <div class="col-md-4 "  >
+          <a href="/read/{{id}}" style="text-decoration: none;color: rgb(253, 240, 213);">
+            <div class="card mb-4 box-shadow" style="background-color:  rgb(0, 48, 73);">
+                <img src="{{thumbnail}}" class="card-img-top" height="400">
+                <div class="card-body">
+                    <p class="card-text text-center" class="card-text"  >{{title}}</p>
+                    <!--<p class="card-text text-center" class="card-text" >{{description}}</p>-->
+                </div>
               </div>
-            </div>
+
           </a>
+            
+          
         </div>
        
       {{/results}}
     </div>
   
-    {{#next_page}}
-    <div>
-      <div>
-        <a href="/search?query={{query}}&page={{next_page}}">Page suivante</a>
-      </div>
-    </div>
-    {{/next_page}}
-
+   
 
   </div>
 
 </div>
- <style>
-  body{
-    background-color: rgb(102, 155, 188) ;
-  }
 
- </style>
+<style>
+
+    .card{
+        /*height: 700px;*/
+    
+        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    
+    }
+
+    .card:hover{
+        transform: scale(1.05);
+       
+    }
+
+    #title {
+        color: rgb(120, 0, 0);
+        margin-bottom: 2%;
+        background: linear-gradient(to right, #e21635, #4d102e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+</style>
+ 
   
 
 {{> footer}}
