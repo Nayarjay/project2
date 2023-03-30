@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-   
-  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,19 +7,16 @@
     , initial-scale=1.0">
     <title>Document</title>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
 </head>
 
 {{> header}}
 
 
-    
+  
 
-    <div >
-            
-
-
-            <div class="gamebody">
+        <div class="gamebody" style=" margin-top: 3.5%;">
+            <h1 id="title">{{title}}</h1>
+        
                 <iframe id="inlineFrameExample"
                     title="Inline Frame Example"
                     width="900"
@@ -29,57 +24,53 @@
                     name="{{id}}"
                     src="{{url}}">
                 </iframe>
-
-            </div>
-               
-            
-
-
-    </div>
-
+         
+          <div style="width:500px;border-radius: 1%;color: rgb(253, 240, 213);"><p  style="overflow-wrap:break-word;margin-top: 2%;">{{description}}</p></div>
+        </div>
+ 
 
 
 {{> footer}}
 
-
-
-
 <script>
     function resizeIframe() {
-    
-    var iframe = document.getElementById("inlineFrameExample");
-    if(iframe.name == '2' || iframe.name == '8'  ){
-        iframe.style.height = 400 + "px";
-        iframe.style.width = 550 + "px";
-    }
-    
+        var iframe = document.getElementById("inlineFrameExample");
+        if (iframe.name == '2' || iframe.name == '8') {
+            iframe.style.height = 400 + "px";
+            iframe.style.width = 550 + "px";
+        }
     }
     resizeIframe();
 </script>
 
-
 <style>
-    .gamebody{
+    .gamebody {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100vh;
         margin: 0;
         background-color: rgb(102, 155, 188);
-
+        flex-direction: column;
+       
     }
-    .body{
+
+    .body {
         background-color: rgb(102, 155, 188);
     }
 
     #inlineFrameExample {
         display: block;
     }
-    
+    #title {
+        color: rgb(120, 0, 0);
+        margin-bottom: 2%;
+        background: linear-gradient(to right, #e21635, #4d102e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+   
+
+ 
 </style>
-
 </html>
-
-
-
-

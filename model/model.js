@@ -269,9 +269,9 @@ function getnowDate(){
   console.log(formattedDate);
 } 
 
-getGameDetails(475).then(function(response){
+/*getGameDetails(475).then(function(response){
   console.log(response)
-})
+})*/
 //console.log(getnowDate());
 
 //getFlashGamesList();
