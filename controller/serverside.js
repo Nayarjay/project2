@@ -141,22 +141,24 @@ app.get('/read/:id', (req, res) => {
       const gameExistsPromise = model.checkIfGameIsInFavorites(req.session.userid, response.id);
 
       // Wait for both Promises to be resolved before executing the then() block
-      Promise.all([gameExistsPromise])
+      /*Promise.all([gameExistsPromise])
         .then(function([gameExists]) {
           entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,gameExists: gameExists};
           console.log("Boolean " + gameExists);
-
+          console.log()
           res.render('read', entry);
+        })*/
+        gameExistsPromise.then(function(gameExists){
+          entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,gameExists: gameExists};
+          console.log("Boolean " + gameExists);
+          console.log()
+          res.render('read', entry);
+
         })
-        .catch(function(error) {
-          console.log(error);
-          res.sendStatus(500);
-        });
+     
+       
     })
-    .catch(function(error) {
-      console.log(error);
-      res.sendStatus(500);
-    });
+   
 });
 
 app.get('/catalogFlash',is_authenticated,(req,res) =>{
