@@ -35,11 +35,17 @@
 <script>
     function resizeIframe() {
         var iframe = document.getElementById("inlineFrameExample");
-        if (iframe.name == '2' || iframe.name == '8'||iframe.name == '15') {
-            iframe.style.height = 400 + "px";
-            iframe.style.width = 550 + "px";
-        }
-    }
+        var iframeNames = ['2', '8', '10', '11', '12','15'];
+
+        for (var i = 0; i < iframeNames.length; i++) {
+            if (iframe.name == iframeNames[i]) {
+                iframe.style.height = 400 + "px";
+                iframe.style.width = 550 + "px";
+                break; // Stop looping once a matching name
+
+            }
+        }   
+    }     
     resizeIframe();
 </script>
 
