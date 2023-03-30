@@ -123,18 +123,19 @@ function getTop10(popularity){
 }
 
 
-async function getGameDetails(id){
-    const myKey = 'b5baf0e861msh5b61bf7a02b095ep133201jsn281e8c3c8a35';
+async function getGameDetails(id) {
+  const myKey = 'b5baf0e861msh5b61bf7a02b095ep133201jsn281e8c3c8a35';
 
-    const response = await fetch(
-      `https://www.freetogame.com/api/game?id=${id}`,
-      { cache: "no-cache" }
-    )
+  try {
+    const response = await fetch(`https://www.freetogame.com/api/game?id=${id}`, { cache: "no-cache" });
     const data = await response.json();
-    //console.log('/////////////////////////////////////////////////////////////////////////////////////////////////////////////////');
-    //console.log(data);
     return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
+
 
 
 
