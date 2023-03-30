@@ -148,16 +148,17 @@ app.get('/read/:id', (req, res) => {
           console.log()
           res.render('read', entry);
         })*/
-        gameExistsPromise.then(function(gameExists){
+        /*gameExistsPromise.then(function(gameExists){
           entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,gameExists: gameExists};
           console.log("Boolean " + gameExists);
           console.log()
           res.render('read', entry);
 
-        })
-     
+        })*/
+        res.render('read', response);
        
     })
+   
    
 });
 
