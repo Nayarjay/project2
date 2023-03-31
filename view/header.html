@@ -9,6 +9,7 @@
     <link href="./header.scss"  rel="stylesheet" type="text/css" >
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js" defer></script>
+  <link rel="stylesheet" href="header.css">
  
  
  
@@ -19,6 +20,9 @@
     <nav style="" class="navbar">
      
       <style>
+         body{
+          background-color: rgb(102, 155, 188)
+        }
         ul {
           display: inline;
           list-style: none;
@@ -40,178 +44,138 @@
         body{
           background-color: rgb(102, 155, 188);
         }
-        /*#home:hover{
-          border: 2px solid transparent;
-          transition: border-color 0.3s;
-          border-color: #000;
-        }
-        #home:hover {
-         
-        } */
-
+      
       </style>
      
     
-      <div style="margin-left: 2%; " >
+    
      
           <div class="topnav" style="margin-top: 10px;">
           
-            
+           
+
+            <ul style="">
       
-            <li >
-              <a href="/"><img src="https://i.postimg.cc/L6k1ZZx2/Minimal-Console-Free-Gaming-Esports-Logo-1.png"  id="home"></a>
-              
-                <!--<form action="/"  >
+              <li >
+                <a href="/"><img src="https://i.postimg.cc/L6k1ZZx2/Minimal-Console-Free-Gaming-Esports-Logo-1.png"  id="home"></a>
                 
-                <li><input type="submit" value="HOME"></li>
-              </form>-->
-            
-           </li> 
-
-           <!--<li ><h1>Welcome, {{name}}</h1></li>-->
-
-            <li>
-
-
-              <div id="PC_Game" style="display: none;">
-
-                <select id ="myDropdown" class="selectpicker" >
-                
-                
-                  <option value="" selected disabled>Select a game Tag</option>
-                  <option value="/catalog/card/pc">Card Games</option>
-                  <option value="/catalog/battle-royale/pc">Battle Royale</option>
-                  <option value="/catalog/strategy/pc">Strategy</option>
-                  <option value="/catalog/anime/pc">Anime</option>
-                  <option value="/catalog/fantasy/pc">Fantasy</option>
-                  <option value="/catalog/sci-fi/pc">Sci-Fi</option>
-                  <option value="/catalog/racing/pc">Racing</option>
-                  <option value="/catalog/fighting/pc">Fighting</option>
-                  <option value="/catalog/social/pc">Social</option>
-                  <option value="/catalog/sports/pc">Sports</option>
-                  <option value="/catalog/martial-arts/pc">martial art</option>
-                  <option value="/catalog/mmorpg/pc">MMO</option>
-  
-              </select>
-  
-              </div>
-
-
-              <div  id="Browser_Game" >
-                <select id ="myDropdown2" class="selectpicker">
-                  <option value="" selected disabled>Select a game Tag</option>
-                  <option value="/catalog/strategy/browser">Strategy</option>
-                  <option value="/catalog/fantasy/browser">Fantasy</option>
-                  <option value="/catalog/sci-fi/browser">Sci-Fi</option>
-                  <option value="/catalog/racing/browser">Racing</option>
-                  <option value="/catalog/social/browser">Social</option>
-                  <option value="/catalog/sports/browser">Sports</option>
-                  <option value="/catalog/mmorpg/browser">MMO</option>
-  
-  
-                </select>
-             
-  
-  
-              </div>
-
-
-           
-
-              
-
-            </li>
-
-
-            <li><input id="plateform" type="checkbox" data-toggle="switchbutton" checked data-onlabel="PC " data-offlabel="Browser " checked data-onstyle="info" data-offstyle="secondary"></li>
-          
-        
-            <li>
-            
-              <form action="/search">
-                
-                <div style="display: flex; ">
-                  <input type="text" placeholder="Search" name="query" aria-label="Search" value="{{query}}" style="background-color: rgb(102, 155, 188); "class="form-control">
-                  <button type="submit"  style="margin-left: 2%;" class="btn btn-outline-info">Search</button>
-                              
-
-                </div>
-             
-             
-
-
-              </form>
-
-             
-            </li>
-           
-          
-           
-
-
-
-            
-
-
-          
-
-           
-          
-          
-            
-            <script>
-              const change = document.getElementById("plateform");
-              const dropdown = document.getElementById("myDropdown");
-              const dropdown2 = document.getElementById("myDropdown2");
-              const myDiv = document.getElementById("PC_Game");
-              const myDiv2 = document.getElementById("Browser_Game");
-              const togle = document.getElementById("plateform");
-              myDiv.style.display = "block";
-              myDiv2.style.display = "none";
-              dropdown.addEventListener("change", function() {
-                //console.log("Dropdown change event fired");
-                const selectedOption = dropdown.options[dropdown.selectedIndex].value;
-                //console.log("Selected option: " + selectedOption);
-                window.location.href = selectedOption;
-              });
-              dropdown2.addEventListener("change", function() {
-                //console.log("Dropdown change event fired");
-                const selectedOption = dropdown2.options[dropdown2.selectedIndex].value;
-                //console.log("Selected option: " + selectedOption);
-                window.location.href = selectedOption;
-              });
-
-              change.addEventListener("change", function() {
-                if (togle.checked) {
-                  console.log("PC platform selected");
-                  myDiv2.style.display = "none";
-                  myDiv.style.display = "block";
+                  <!--<form action="/"  >
                   
-                } else {
-                  console.log("Browser platform selected");
-               
-
-                 myDiv.style.display = "none";
-                  myDiv2.style.display ="block"
-                }
-              });
-
+                  <li><input type="submit" value="HOME"></li>
+                </form>-->
               
+              </li> 
 
-
-            </script>
+              <!--<li ><h1>Welcome, {{name}}</h1></li>-->
             
+
+              <li>
+
+
+                <div id="PC_Game" style="display: none;">
+
+                  <select id ="myDropdown" class="form-select" >
+                  
+                  
+                    <option value="" selected disabled>Select a game Tag</option>
+                    <option value="/catalog/card/pc">Card Games</option>
+                    <option value="/catalog/battle-royale/pc">Battle Royale</option>
+                    <option value="/catalog/strategy/pc">Strategy</option>
+                    <option value="/catalog/anime/pc">Anime</option>
+                    <option value="/catalog/fantasy/pc">Fantasy</option>
+                    <option value="/catalog/sci-fi/pc">Sci-Fi</option>
+                    <option value="/catalog/racing/pc">Racing</option>
+                    <option value="/catalog/fighting/pc">Fighting</option>
+                    <option value="/catalog/social/pc">Social</option>
+                    <option value="/catalog/sports/pc">Sports</option>
+                    <option value="/catalog/martial-arts/pc">martial art</option>
+                    <option value="/catalog/mmorpg/pc">MMO</option>
+    
+                </select>
+    
+                </div>
+
+
+                <div  id="Browser_Game"  >
+                  <select id ="myDropdown2" class="form-select">
+                    <option value="" selected disabled>Select a game Tag</option>
+                    <option value="/catalog/strategy/browser">Strategy</option>
+                    <option value="/catalog/fantasy/browser">Fantasy</option>
+                    <option value="/catalog/sci-fi/browser">Sci-Fi</option>
+                    <option value="/catalog/racing/browser">Racing</option>
+                    <option value="/catalog/social/browser">Social</option>
+                    <option value="/catalog/sports/browser">Sports</option>
+                    <option value="/catalog/mmorpg/browser">MMO</option>
+    
+    
+                  </select>
+              
+    
+    
+                </div>
+
+
+        
+
+            
+
+                
+
+              </li>
+              <li><input id="plateform" type="checkbox" data-toggle="switchbutton" checked data-onlabel="PC " data-offlabel="Browser " checked data-onstyle="info" data-offstyle="secondary"></li>
+            </ul>
+
+           
+          
+            <ul>
+              <li>
+            
+                <form action="/search">
+                  
+                  <div style="display: flex; ">
+                    <input type="text" placeholder="Search" name="query" aria-label="Search" value="{{query}}" style="background-color: rgb(102, 155, 188); "class="form-control">
+                    <button type="submit"  style="margin-left: 2%;" class="btn btn-outline-info">Search</button>
+                                
+  
+                  </div>
+               
+               
+  
+  
+                </form>
+  
+               
+              </li>
+             
+
+            </ul>
+           
+          
+           
+
+
+
+            
+
+
+          
+
+           
             
             
             
             {{^authenticated}}
-            <li>
-              <div class="text-end">
-                <li style="margin-top: 2%;"><a href="/login"> <button id='conect-btn' class="btn btn-info" >Se connecter</button></a> </li>
-                <li style="margin-top: 2%;"><a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">creer un compte</button></a></li>
-              </div>
+            <ul>
+              <li>
+                <div class="text-end">
+                 <a href="/login"> <button id='conect-btn' class="btn btn-info" >Se connecter</button></a> 
+                  <a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">creer un compte</button></a>
+                </div>
 
-            </li>
+              </li>
+            
+
+            </ul>
             
             {{/authenticated}}
 
@@ -220,47 +184,48 @@
 
 
             {{#authenticated}}
-           
-            <li > 
-                
-              <form action="/catalogFlash"  >
-               
-                <li><input type="submit" value="Flash Games" id="flash"></li>
-               
-              </form>
-              
-          
-            </li>
+            <ul>
 
-             <!--<li><a class="active" href="/catalogFlash">Flash Games</a></li>-->
-
-            <li > 
+              <li > 
                 
-              <form action="/favorite"  >
-               
-                <li><input type="submit"   value="Favorite" id="fav"></input></li>
-               
-              </form>
-          
-            </li>
+                <form action="/catalogFlash"  >
+                 
+                 <input type="submit" value="Flash Games" id="flash">
+                 
+                </form>
+                
             
-           
-            <li>
+              </li>
+  
+               <!--<li><a class="active" href="/catalogFlash">Flash Games</a></li>-->
+  
+              <li > 
+                  
+                <form action="/favorite"  >
+                 
+                  <input type="submit"   value="Favorite" id="fav"></input>
+                 
+                </form>
+            
+              </li>
+
+              <li>
 
            
               
                
-                <li><input type="submit"  id='logout-btn'  value="Log out" ></input></li>
-               
-        
-              
-                <!--<li  ><button id='logout-btn' class="btn btn-danger">Log out</button></li>-->
-                
-                
+                <input type="submit"  id='logout-btn'  value="Log out" ></input>
             
 
             </li>
          
+              
+
+
+            </ul>
+            
+           
+           
             
             {{/authenticated}}
           </div>
@@ -270,7 +235,7 @@
 
 
        
-      </div>
+ 
 
       <script>
         document.getElementById('logout-btn').addEventListener('click', function() {
@@ -290,199 +255,62 @@
         });
       </script>
 
+
+
+
+
+          
+          
+                
+    <script>
+      const change = document.getElementById("plateform");
+      const dropdown = document.getElementById("myDropdown");
+      const dropdown2 = document.getElementById("myDropdown2");
+      const myDiv = document.getElementById("PC_Game");
+      const myDiv2 = document.getElementById("Browser_Game");
+      const togle = document.getElementById("plateform");
+      myDiv.style.display = "block";
+      myDiv2.style.display = "none";
+      dropdown.addEventListener("change", function() {
+        //console.log("Dropdown change event fired");
+        const selectedOption = dropdown.options[dropdown.selectedIndex].value;
+        //console.log("Selected option: " + selectedOption);
+        window.location.href = selectedOption;
+      });
+      dropdown2.addEventListener("change", function() {
+        //console.log("Dropdown change event fired");
+        const selectedOption = dropdown2.options[dropdown2.selectedIndex].value;
+        //console.log("Selected option: " + selectedOption);
+        window.location.href = selectedOption;
+      });
+
+      change.addEventListener("change", function() {
+        if (togle.checked) {
+          console.log("PC platform selected");
+          myDiv2.style.display = "none";
+          myDiv.style.display = "block";
+          
+        } else {
+          console.log("Browser platform selected");
+      
+
+        myDiv.style.display = "none";
+          myDiv2.style.display ="block"
+        }
+      });
+
+      
+
+
+    </script>
+
+
     
     </nav>
 
 
 
-    <style>
-
-      body{
-        background-color: rgb(102, 155, 188)
-      }
-
-      
-
-        
-    </style>
+  
 
 
 
-<style>
-
-#flash {
-  --c:  #22a1a3; /* the color*/
-  border-radius: 10%;
-  height: 38px;
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-}
-#flash:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-}
-#flash:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #fff;
-}
-
-
-
-
-#flash {
-  font-family: system-ui, sans-serif;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: .1em .6em;
-  font-weight: bold;  
-  border: none;
-}
-
-
-
-
-
-
-
-/**  fav button**/
-
-#fav {
-  --c:  #e92ab0; /* the color*/
-  border-radius: 10%;
-  height: 38px;
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-}
-#fav:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-}
-#fav:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #fff;
-}
-
-
-
-
-#fav  {
-  font-family: system-ui, sans-serif;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: .1em .6em;
-  font-weight: bold;  
-  border: none;
-}
-
-
-
-
-
-
-
-
-
-/**  log out button**/
-
-#logout-btn {
-  --c:  #e92828; /* the color*/
-  border-radius: 10%;
-  height: 38px;
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-}
-#logout-btn:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-}
-#logout-btn:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #fff;
-}
-
-
-
-
-#logout-btn {
-  font-family: system-ui, sans-serif;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: .1em .6em;
-  font-weight: bold;  
-  border: none;
-}
-
-
-
-
-
-
-
-/**  home**/
-
-#home {
-  --c:  rgb(0,48,73); /* the color*/
-  border-radius: 10%;
-  height: 70px;
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-}
-#home:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-}
-#home:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #fff;
-}
-
-
-
-
-#home{
-  font-family: system-ui, sans-serif;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: .1em .6em;
-  font-weight: bold;  
-  border: none;
-}
-
-
-</style>
