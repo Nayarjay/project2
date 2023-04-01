@@ -63,14 +63,16 @@ function authenticated(req, res, next) {
 app.get('/', (req, res) => {
   var found;
   var foundpc;
-  model.responseApi2(model.getGamesByPlateform('pc')) 
+  model.responseApi3(model.getGamesByPlateform()) 
   .then(function(response2) {
     //found = { games: response2 };
     //res.render('index', foundpc );
-    model.responseApi2(model.getTop10()) 
+    model.responseApi3(model.getTop10()) 
     .then(function(response) {
+      
       var firstGame = response.shift();
       found = { game: response, firstGame: firstGame ,games:response2};
+      console.log(response2)
       res.render('index', found );
     });
 
@@ -147,7 +149,7 @@ app.get('/read/:id', (req, res) => {
         .then(function([gameExists]) {
           entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
           console.log("Boolean " + gameExists);
-          console.log()
+          //console.log()
           res.render('read', entry);
         })
     

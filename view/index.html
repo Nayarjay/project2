@@ -40,9 +40,15 @@
                 <div class="card" style="width: 18rem;">
                   <img src="{{thumbnail}}" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">{{title}}</h5>
-                    <p class="card-text">{{description}}</p>
-                    <a href="/read/{{id}}" class="btn btn-primary">See more</a>
+                    <h5 class="card-title" style="text-align: center;">{{title}}</h5>
+                    <p class="card-text">{{description}} </p>
+                    <ul style="display: inline-block;">
+                      <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
+                      <li><p> {{platform}}</p></li>
+
+                    </ul>
+                   
+                  
                   </div>
                 </div>
               </div>
