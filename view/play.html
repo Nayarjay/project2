@@ -12,7 +12,8 @@
 {{> header}}
 
 
-  
+<div class="container">
+    <div class="row">
 
         <div class="gamebody" style=" margin-top: 3.5%;">
             <h1 id="title">{{title}}</h1>
@@ -25,9 +26,17 @@
                     src="{{url}}">
                 </iframe>
          
-          <div style="width:500px;border-radius: 1%;color: rgb(253, 240, 213);"><p  style="overflow-wrap:break-word;margin-top: 2%;">{{description}}</p></div>
+          <div style="width:700px;border-radius: 1%;color: rgb(253, 240, 213);"><h3  style="overflow-wrap:break-word;margin-top: 2%;">{{description}}</h3></div>
         </div>
- 
+
+
+    </div>
+   
+
+
+</div>
+
+      
 
 
 {{> footer}}
@@ -56,14 +65,12 @@
         justify-content: center;
         height: 100vh;
         margin: 0;
-        background-color: rgb(102, 155, 188);
+       
         flex-direction: column;
        
     }
 
-    .body {
-        background-color: rgb(102, 155, 188);
-    }
+    
 
     #inlineFrameExample {
         display: block;
