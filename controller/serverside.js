@@ -72,7 +72,7 @@ app.get('/', (req, res) => {
       
       var firstGame = response.shift();
       found = { game: response, firstGame: firstGame ,games:response2};
-      console.log(response2)
+      //console.log(response2)
       res.render('index', found );
     });
 

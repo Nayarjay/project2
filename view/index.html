@@ -41,10 +41,14 @@
                   <img src="{{thumbnail}}" class="card-img-top" alt="...">
                   <div class="card-body">
                     <h5 class="card-title" style="text-align: center;">{{title}}</h5>
-                    <p class="card-text">{{description}} </p>
-                    <ul style="display: inline-block;">
+                    
+                    <ul >
                       <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
-                      <li><p> {{platform}}</p></li>
+                      <li>
+                        <p id="plateformInfo">{{platform}}</p>
+                        <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
+                      </li>
+                     
 
                     </ul>
                    
@@ -64,10 +68,55 @@
 
   
 
-  
-
  
  
 
 {{> footer}}
 
+
+
+  
+
+
+
+<script>
+
+
+
+// get all the elements with id "plateformInfo"
+var infoElements = document.querySelectorAll("#plateformInfo");
+
+// loop through the elements
+infoElements.forEach(function(info) {
+  var image = document.createElement("img");
+
+  if(info.textContent == 'Web Browser'){
+
+    // create an image element
+  
+    image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
+    image.height = "48";
+    image.width = "48";
+    
+    // replace the existing text with the image
+    info.textContent = "";
+    info.appendChild(image);
+    
+  }if(info.textContent == 'PC (Windows)') {
+
+    // create an image element
+    image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
+    image.height = "48";
+    image.width = "48";
+    
+    // replace the existing text with the image
+    info.textContent = "";
+    info.appendChild(image);
+
+  }
+});
+
+
+
+
+</script>
