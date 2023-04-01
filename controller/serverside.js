@@ -113,9 +113,9 @@ app.get('/catalog/:tag/:plateform', (req, res) => {
   
   
   //console.log(toString(req.params.plateform));
-  console.log("Plateform: "+req.params.plateform);
+  //console.log("Plateform: "+req.params.plateform);
   const plat=toString(req.params.plateform);
-  console.log(plat)
+  //console.log(plat)
 
   model.responseApi2(model.GetGamesByTag(req.params.tag,req.params.plateform)) 
   .then(function(response) {
@@ -124,6 +124,8 @@ app.get('/catalog/:tag/:plateform', (req, res) => {
     //console.log(response)
     res.render('catalog',found )
    
+  }).catch(function(error) {
+    console.error(error);
   });
 
   // Example usage

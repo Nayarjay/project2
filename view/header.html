@@ -29,7 +29,7 @@
           list-style: none;
         }
         li {
-          display: inline-block;
+          /*display: inline-block;*/
           margin-right: 10px; /* optional - add space between items */
         }
         
@@ -50,6 +50,9 @@
         }
         .topnav{
           width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
         
       </style>
@@ -58,11 +61,7 @@
     
      
           <div class="topnav" style="margin-top: 10px;">
-          
-           
-
-            <ul>
-      
+            <ul style="display: flex;justify-content: start;">
               <li >
                 <a href="/"><img src="https://i.postimg.cc/L6k1ZZx2/Minimal-Console-Free-Gaming-Esports-Logo-1.png"  id="home"></a>
                 
@@ -70,9 +69,16 @@
               
               </li> 
 
+            </ul>
+          
+
+            <ul style="display: flex;justify-content: start;">
+      
+              
+
             
 
-              <li style="margin-left: 8%;">
+              <li style="margin-left: 0%;">
 
 
                 <div id="PC_Game" style="display: none;">
@@ -130,7 +136,7 @@
 
            
           
-            <ul style="margin-left: 10%;">
+            <ul style="margin-left: 0%;display: flex;justify-content: center;">
               <li>
             
                 <form action="/search">
@@ -168,14 +174,14 @@
             
             
             {{^authenticated}}
-            <ul style="margin-left: 23%;">
-              <li>
-                <div class="text-end">
-                 <a href="/login"> <button id='conect-btn' class="btn btn-info" >Se connecter</button></a> 
-                  <a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">creer un compte</button></a>
+            <ul style="margin-left: 0%;display: flex;justify-content: end;">
+             
+                <div class="text-end" style="display: flex;">
+                 <li><a href="/login"> <button id='conect-btn' class="btn btn-info" >Se connecter</button></a> </li>
+                 <li> <a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">creer un compte</button></a></li>
                 </div>
 
-              </li>
+     
             
 
             </ul>
@@ -187,7 +193,7 @@
 
 
             {{#authenticated}}
-            <ul style="margin-left: 10%;">
+            <ul style="margin-left: 0%;display: flex;justify-content: end;">
 
               <li > 
                 

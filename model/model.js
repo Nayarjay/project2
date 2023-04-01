@@ -222,7 +222,7 @@ function responseApiSearchBar(title, options) {
 
     filteredData.forEach(obj => {
       if (obj.title.toUpperCase().includes(capitalizedWord) && obj.title !="Epic Cards Battle" && obj.title !="5Street"&& obj.title !="Deathverse: Let It Die") {
-        console.log(obj)
+        //console.log(obj)
         list.push(obj);
       }
     });
