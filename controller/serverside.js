@@ -139,11 +139,10 @@ app.get('/read/:id', (req, res) => {
 
   model.getGameDetails(req.params.id)
     .then(function(response) {
-      /*console.log(response.title)
-      console.log(response.id)*/
+   
       const gameExistsPromise = model.checkIfGameIsInFavorites(req.session.userid, response.id);
 
-      // Wait for both Promises to be resolved before executing the then() block
+      
       Promise.all([gameExistsPromise])
         .then(function([gameExists]) {
           entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,gameExists: gameExists};
@@ -151,14 +150,7 @@ app.get('/read/:id', (req, res) => {
           console.log()
           res.render('read', entry);
         })
-        /*gameExistsPromise.then(function(gameExists){
-          entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,gameExists: gameExists};
-          console.log("Boolean " + gameExists);
-          console.log()
-          res.render('read', entry);
-
-        })*/
-        //res.render('read', response);
+    
        
     })
    
