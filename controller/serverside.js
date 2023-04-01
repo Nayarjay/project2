@@ -145,7 +145,7 @@ app.get('/read/:id', (req, res) => {
       
       Promise.all([gameExistsPromise])
         .then(function([gameExists]) {
-          entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,gameExists: gameExists};
+          entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
           console.log("Boolean " + gameExists);
           console.log()
           res.render('read', entry);
