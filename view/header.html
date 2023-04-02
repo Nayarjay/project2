@@ -187,20 +187,52 @@
             {{^authenticated}}
             <ul style="display: flex;justify-content: end;">
              
-               
-                  <li > 
+              
+                <li > 
                 
-                    <form action="/catalogFlash"  >
-                     
-                     <input type="submit" value="Flash Games" id="flash">
-                     
-                    </form>
-                    
+                  <form action="/catalogFlash"  >
+                   
+                   <input type="submit" value="Flash Games" id="flash">
+                   
+                  </form>
+                  
+              
+                </li>
+
                 
-                  </li>
-      
-                 <li><a href="/login"> <button id='conect-btn' class="btn btn-info" >Se connecter</button></a> </li>
-                 <li> <a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">creer un compte</button></a></li>
+                <li > 
+                
+                  <form action="/login"  >
+                   
+                   <input type="submit" value="Login" id='conect-btn' class="btn btn-info">
+                   
+                  </form>
+                  
+              
+                </li>
+
+
+
+                 
+                <li > 
+                
+                  <form action="/new_user"  >
+                   
+                   <input type="submit" value="Sign in" id='conect-btn' class="btn btn-outline-info">
+                   
+                  </form>
+                  
+              
+                </li>
+
+
+                <!--
+                
+               <li><a href="/login"> <button id='conect-btn' class="btn btn-info" >Login</button></a> </li>
+               <li> <a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">Sign in</button></a></li>-->
+
+              
+                 
          
 
      
@@ -217,7 +249,7 @@
             {{#authenticated}}
             <ul style="margin-left: 0%;display: flex;justify-content: end;">
 
-              <li > 
+              <li> 
                 
                 <form action="/catalogFlash"  >
                  
@@ -248,7 +280,7 @@
                 <input type="submit"  id='logout-btn'  value="Log out" ></input>
             
 
-            </li>
+              </li>
          
               
 
