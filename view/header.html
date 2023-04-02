@@ -72,16 +72,16 @@
             </ul>
           
 
-            <ul style="display: flex;justify-content: start;">
+            <ul style="display: flex;justify-content: center;">
       
-              
+             
 
             
 
               <li style="margin-left: 0%;">
 
 
-                <div id="PC_Game" style="display: none;">
+                <div id="PC_Game" >
 
                   <select id ="myDropdown" class="form-select" style="background-color: #0dcaf0;" >
                   
@@ -132,32 +132,43 @@
 
               </li>
               <li><input id="plateform" type="checkbox" data-toggle="switchbutton" checked data-onlabel="PC " data-offlabel="Browser " checked data-onstyle="info" data-offstyle="warning"></li>
+
+
+
+              <ul style="margin-left: 0%;">
+              
+
+                <li style="margin-left: 8%;">
+              
+                  <form action="/search">
+                    
+                    <div style="display: flex; ">
+                      <input type="text" placeholder="Search" name="query" aria-label="Search" value="{{query}}" style="background-color: rgb(102, 155, 188); "class="form-control">
+                      <button type="submit"  style="margin-left: 2%;" class="btn btn-outline-info">Search</button>
+                                  
+    
+                    </div>
+                 
+                 
+    
+    
+                  </form>
+    
+                 
+                </li>
+               
+  
+  
+  
+              </ul>
+
+
+          
             </ul>
 
            
           
-            <ul style="margin-left: 0%;display: flex;justify-content: center;">
-              <li>
-            
-                <form action="/search">
-                  
-                  <div style="display: flex; ">
-                    <input type="text" placeholder="Search" name="query" aria-label="Search" value="{{query}}" style="background-color: rgb(102, 155, 188); "class="form-control">
-                    <button type="submit"  style="margin-left: 2%;" class="btn btn-outline-info">Search</button>
-                                
-  
-                  </div>
-               
-               
-  
-  
-                </form>
-  
-               
-              </li>
-             
-
-            </ul>
+           
            
           
            
@@ -174,12 +185,23 @@
             
             
             {{^authenticated}}
-            <ul style="margin-left: 0%;display: flex;justify-content: end;">
+            <ul style="display: flex;justify-content: end;">
              
-                <div class="text-end" style="display: flex;">
+               
+                  <li > 
+                
+                    <form action="/catalogFlash"  >
+                     
+                     <input type="submit" value="Flash Games" id="flash">
+                     
+                    </form>
+                    
+                
+                  </li>
+      
                  <li><a href="/login"> <button id='conect-btn' class="btn btn-info" >Se connecter</button></a> </li>
                  <li> <a href="/new_user"> <button id='create_user-btn'  class="btn btn-outline-info">creer un compte</button></a></li>
-                </div>
+         
 
      
             
