@@ -11,7 +11,7 @@
               
             
               <p> {{description}}</p>
-              <p>Link: {{game_url}}</p>
+              <a href="{{game_url}}"  class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
               <ul style="list-style-type: circle;">
                 <li>publisher:{{publisher}}</li>
                 <li>developer:{{developer}}</li>
@@ -23,10 +23,10 @@
 
             
               <div  >
-                <h2> Configuration </h2>
+               
                 {{#minimum_system_requirements}}
                   <ul style="list-style-type: circle;">
-
+                    <li style="list-style: none;"><h2> Configuration </h2></li>
                     <li>os: {{os}}</li>
                     <li>processor: {{processor}}</li>
                     <li>memory:{{memory}}</li>
