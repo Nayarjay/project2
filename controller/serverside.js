@@ -16,7 +16,9 @@ var mustache = require('mustache-express');
 
 var model = require('../model/model');
 var app = express();
+// Définition du dossier pour les fichiers statiques (images, CSS, etc.)
 
+app.use(express.static('public'));
 
 // parse form arguments in POST requests
 const bodyParser = require('body-parser');
@@ -195,7 +197,6 @@ app.get('/delete/:id', is_authenticated,(req, res) => {
 
 //formulaire login
 app.get('/login', (req, res) => {
-  
   res.render('login');
 });
 //fail one
