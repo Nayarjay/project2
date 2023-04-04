@@ -280,7 +280,7 @@ app.post('/add_favorite', async (req, res) => {
       //alert("game already in favorite");
     } else {
     
-       model.addtofavorite(req.session.userid, id, thumbnail, description, title);
+       model.addtofavorite(req.session.userid, idgame, thumbnail, description, title);
       console.log("Game added to favorites");
       
       //alert("game add to your favorite");
@@ -293,7 +293,7 @@ app.post('/add_favorite', async (req, res) => {
 });
 
 app.post('/deletefromfavorite', async(req,res)=>{
-  
+  const { idgame } = req.body;
   try{
     const isAlreadyInFavorites = await model.checkIfGameIsInFavorites(req.session.userid, idgame);
   if (isAlreadyInFavorites){
