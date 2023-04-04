@@ -270,6 +270,8 @@ app.post('/new_user', (req, res) => {
 app.post('/add_favorite', async (req, res) => {
   const { idgame, title, thumbnail, description } = req.body;
   console.log(idgame + title +thumbnail +description );
+
+
  
   try {
     const isAlreadyInFavorites = await model.checkIfGameIsInFavorites(req.session.userid, idgame);
@@ -280,6 +282,7 @@ app.post('/add_favorite', async (req, res) => {
     
        model.addtofavorite(req.session.userid, id, thumbnail, description, title);
       console.log("Game added to favorites");
+      
       //alert("game add to your favorite");
     }
   } catch (error) {
