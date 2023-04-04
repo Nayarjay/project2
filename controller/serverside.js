@@ -270,14 +270,15 @@ app.post('/new_user', (req, res) => {
 app.post('/add_favorite', async (req, res) => {
   const { idgame, title, thumbnail, description } = req.body;
   console.log(idgame + title +thumbnail +description );
-
+ 
   try {
     const isAlreadyInFavorites = await model.checkIfGameIsInFavorites(req.session.userid, idgame);
     if (isAlreadyInFavorites) {
       console.log("Game already in favorites");
       //alert("game already in favorite");
     } else {
-       model.addtofavorite(req.session.userid, idgame, thumbnail, description, title);
+    
+       model.addtofavorite(req.session.userid, id, thumbnail, description, title);
       console.log("Game added to favorites");
       //alert("game add to your favorite");
     }
@@ -288,7 +289,22 @@ app.post('/add_favorite', async (req, res) => {
   res.redirect('/read/' + idgame);
 });
 
+app.post('/deletefromfavorite', async(req,res)=>{
+  
+  try{
+    const isAlreadyInFavorites = await model.checkIfGameIsInFavorites(req.session.userid, idgame);
+  if (isAlreadyInFavorites){
+    model.deletefromfavorite(idgame);
+  }
+  else{
+    console.log('Add this game to your favorites');
+  }}
+  catch(error) {
+    console.log("Error", error);
+  }
+  res.redirect('/read/' + idgame);
 
+});
 
 
 /**** Routes pour modifier les données ****/
