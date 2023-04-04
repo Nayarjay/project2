@@ -22,7 +22,8 @@
               <img src="{{thumbnail}}" class="card-img-top ">
             </div>
             <div class="card-body">
-              <h3 class="card-text text-center">{{title}}</h3>
+              <h3 class="card-text text-center" id="title2">{{title}}</h3>
+              <div style="display: flex;justify-content: center;margin-top: 5%;"><p id="plateformInfo">{{platform}}</p></div>
             </div>
           </div>
         </a>
@@ -69,3 +70,83 @@
   
 
 {{> footer}}
+<script>
+
+
+
+  // get all the elements with id "plateformInfo"
+  var infoElements = document.querySelectorAll("#plateformInfo");
+  
+  // loop through the elements
+  infoElements.forEach(function(info) {
+    //console.log(info.textContent)
+    var image = document.createElement("img");
+  
+    if(info.textContent == 'Web Browser'){
+  
+      // create an image element
+    
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
+      image.height = "48";
+      image.width = "48";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+      
+    }if(info.textContent == 'PC (Windows)') {
+  
+      // create an image element
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
+      image.height = "48";
+      image.width = "48";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+  
+    }
+    if(info.textContent == 'PC (Windows), Web Browser') {
+  
+      // create an image element
+      image.src = "https://i.postimg.cc/P5v4LbYf/twice-removebg-preview.png";
+      image.height = "48";
+      image.width = "135";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+
+    }
+
+    
+  });
+
+  
+  </script>
+
+  <script>
+
+        
+    //const title2 = document.getElementById("title2");
+    var title2 = document.querySelectorAll("#title2");
+
+
+   title2.forEach(function(title) {
+     const titleStyles = window.getComputedStyle(title);
+     const titleHeight = title.offsetHeight;
+     const lineHeight = parseInt(titleStyles.lineHeight);
+     const isTwoLines = titleHeight >= 2 * lineHeight;
+       console.log(title.textContent)
+     if (isTwoLines) {
+       // Reduce the font size of the title
+       title.style.fontSize = "1rem";
+     }  
+
+   })
+
+  
+
+
+
+  </script>

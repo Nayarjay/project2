@@ -2,24 +2,88 @@
   <div class="grid" style="margin-top: 10%;">
     <div class="container">
       
-      <div class="row">
-      
-        <div  class="col-md-4" >
-          <h1>tritre {{title}}</h1>
+      <div class="row" style="display: flex;justify-content: center;">
+        {{#results}}
+          <div  class="col-md-4" >
+        
+              <h1>{{title}}</h1>
+              
+              
+            
+              <p> {{description}}</p>
+              <a href="{{game_url}}"  class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
+              <ul style="list-style-type: circle;">
+                <li>publisher:{{publisher}}</li>
+                <li>developer:{{developer}}</li>
+                <li>release_date:{{release_date}}</li>
+                <li>genre:{{genre}}</li>
+
+              </ul>
+
+
+            
+              <div  >
+               
+                {{#minimum_system_requirements}}
+                  <ul style="list-style-type: circle;">
+                    <li style="list-style: none;"><h2> Configuration </h2></li>
+                    <li>os: {{os}}</li>
+                    <li>processor: {{processor}}</li>
+                    <li>memory:{{memory}}</li>
+                    <li>graphics:{{graphics}}</li>
+                    <li>storage:{{storage}}</li>
+                
+
+                  </ul>
+                
+    
+                {{/minimum_system_requirements}}
+
+                
+              </div>
+             
           
+    
+          </div>
+          <div class="col-md-4" style="margin-top: 0%;margin-left: 5%;"> 
+             <img src="{{thumbnail}}" style="margin-left: 5%;border: 2px solid rgb(196, 87, 68);" >
+             <h2 style="display: flex;justify-content: center;">Gameplay</h2>
+              <div  >
+              
+                {{#screenshots}}
+                  <div style="display: flex;justify-content: center;">
+                    <img src="{{image}}"  style="margin-left: 0%;margin-top: 2%;border-radius: 3%;border: 2px solid rgb(253, 240, 213);" height="200"  width="300"   >
+                  </div>
+                  
+              
+              
+
+                {{/screenshots}}
+              </div>
+          
+
+
+                  
+          
+            
+            </div>
+
+
+            <div class="col-md-4">
+             
+
+
+
+
+
+            </div>
+
+      
+
           
          
-          <p>descriptions {{description}}</p>
-          <p>Link: {{game_url}}</p>
-          <p>publisher:{{publisher}}</p>
-          <p>developer:{{developer}}</p>
-          <p>release_date:{{release_date}}</p>
-          <p>genre:{{genre}}</p>
-          
-  
-        </div>
-        <div class="col-md-4" style="margin-top: 5%;margin-left: 5%;">  <img src="{{thumbnail}}" ></div>
-       
+           
+        {{/results}}
   
       </div>
      
@@ -37,12 +101,12 @@
         
           <button type="submit">add favorite</button>
         </form>
-
+        
       
 
       {{/gameExists}}
     
-      {{/authenticated}}
+    {{/authenticated}}
     
    
   </div>

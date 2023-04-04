@@ -97,11 +97,13 @@ function GetGamesByTag(tag,support){
     };
 }
 
-function getGamesByPlateform(support){
+
+
+function getGamesByPlateform(){
   return options = {
        method: 'GET',
        url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
-       params: {platform: support, 'sort-by': 'release-date'},
+       params: {'sort-by': 'release-date'},
        headers: {
          'X-RapidAPI-Key': 'b5baf0e861msh5b61bf7a02b095ep133201jsn281e8c3c8a35',
          'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
@@ -178,7 +180,8 @@ module.exports = {
     addtofavorite,
     checkIfGameIsInFavorites,
     getFlashGamesList,
-    getFlashGames
+    getFlashGames,
+    responseApi3
 
 };
 
@@ -196,7 +199,7 @@ function responseApi2(options) {
              ;
     });
 
-    console.log(filteredData);
+    //console.log(filteredData);
     return filteredData.slice(0, response.data.length);
   }).catch(function(error) {
     console.error(error);
@@ -219,7 +222,7 @@ function responseApiSearchBar(title, options) {
 
     filteredData.forEach(obj => {
       if (obj.title.toUpperCase().includes(capitalizedWord) && obj.title !="Epic Cards Battle" && obj.title !="5Street"&& obj.title !="Deathverse: Let It Die") {
-        console.log(obj)
+        //console.log(obj)
         list.push(obj);
       }
     });
@@ -229,6 +232,28 @@ function responseApiSearchBar(title, options) {
     console.error(error);
   });
 }
+
+
+function responseApi3(options) {
+  const excludedGenres = ['Shooter', 'MOBA', 'mmofps', 'mmotps', 'mmorts', 'horror', 'ARPG', 'MMORPG'];
+  return axios.request(options).then(function(response) {
+    // filter
+    let filteredData = response.data.filter(obj => {
+      return obj.genre && 
+             !excludedGenres.some(g => obj.genre.includes(g)) && 
+             obj.title !== "Epic Cards Battle" && 
+             obj.title !== "5Street"
+             && obj.title !="Deathverse: Let It Die"
+             ;
+    });
+
+    //console.log(filteredData);
+    return filteredData.slice(0, 20);
+  }).catch(function(error) {
+    console.error(error);
+  });
+}
+
 
 
 

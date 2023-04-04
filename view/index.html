@@ -1,9 +1,9 @@
 
 {{> header}} 
 
-    <div clas="main" style="margin-top: 3.8%;">
+    <div clas="main" style="margin-top: 0%;">
 
-        <div class="jumbotron jumbotron-fluid" style="margin-left: 20%;">
+        <div class="jumbotron jumbotron-fluid" style="margin-left: 20%;margin-top: 10%;">
           <div class="container container-fluid " >
             <h1 class="display-4">Top Free Anime Games for Browser In 2023!</h1>
             
@@ -40,9 +40,19 @@
                 <div class="card" style="width: 18rem;">
                   <img src="{{thumbnail}}" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">{{title}}</h5>
-                    <p class="card-text">{{description}}</p>
-                    <a href="/read/{{id}}" class="btn btn-primary">See more</a>
+                    <h5 class="card-title" style="text-align: center;">{{title}}</h5>
+                    
+                    <ul >
+                      <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
+                      <li>
+                        <p id="plateformInfo">{{platform}}</p>
+                        <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
+                      </li>
+                     
+
+                    </ul>
+                   
+                  
                   </div>
                 </div>
               </div>
@@ -58,10 +68,55 @@
 
   
 
-  
-
  
  
 
 {{> footer}}
 
+
+
+  
+
+
+
+<script>
+
+
+
+// get all the elements with id "plateformInfo"
+var infoElements = document.querySelectorAll("#plateformInfo");
+
+// loop through the elements
+infoElements.forEach(function(info) {
+  var image = document.createElement("img");
+
+  if(info.textContent == 'Web Browser'){
+
+    // create an image element
+  
+    image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
+    image.height = "48";
+    image.width = "48";
+    
+    // replace the existing text with the image
+    info.textContent = "";
+    info.appendChild(image);
+    
+  }if(info.textContent == 'PC (Windows)') {
+
+    // create an image element
+    image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
+    image.height = "48";
+    image.width = "48";
+    
+    // replace the existing text with the image
+    info.textContent = "";
+    info.appendChild(image);
+
+  }
+});
+
+
+
+
+</script>

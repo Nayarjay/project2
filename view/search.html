@@ -22,7 +22,12 @@
               <img src="{{thumbnail}}" class="card-img-top ">
             </div>
             <div class="card-body">
-              <h3 class="card-text text-center">{{title}}</h3>
+           
+               <h3 class="card-text text-center">{{title}}</h3>
+              <div style="display: flex;justify-content: center;margin-top: 5%;"><p id="plateformInfo">{{platform}}</p></div>
+               
+   
+           
             </div>
           </div>
         </a>
@@ -70,3 +75,47 @@
   
 
 {{> footer}}
+
+
+
+<script>
+
+
+
+  // get all the elements with id "plateformInfo"
+  var infoElements = document.querySelectorAll("#plateformInfo");
+  
+  // loop through the elements
+  infoElements.forEach(function(info) {
+    var image = document.createElement("img");
+  
+    if(info.textContent == 'Web Browser'){
+  
+      // create an image element
+    
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
+      image.height = "48";
+      image.width = "48";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+      
+    }if(info.textContent == 'PC (Windows)') {
+  
+      // create an image element
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
+      image.height = "48";
+      image.width = "48";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+  
+    }
+  });
+  
+  
+  
+  
+  </script>
