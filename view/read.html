@@ -105,6 +105,17 @@
       
 
       {{/gameExists}}
+
+      {{#gameExists}}
+      <form method="post" action="/deletefromfavorite" style="margin-left: 50%;">
+        <input type="hidden" name="idgame" value="{{id}}">
+        <input type="hidden" name="title" value="{{title}}">
+        <input type="hidden" name="thumbnail" value="{{thumbnail}}">
+        <input type="hidden" name="description" value="{{short_description}}">
+      
+        <button type="submit">Delete from favorite</button>
+      </form>
+      {{/gameExists}}
     
     {{/authenticated}}
     

@@ -78,6 +78,11 @@ function getFlashGamesList() {
   return results;
 }
 
+function deletefromfavorite(idgame){
+  db.prepare('DELETE FROM favorite WHERE idgame = ?').run(idgame);
+  return 1;
+}
+
 
 
 
@@ -181,7 +186,8 @@ module.exports = {
     checkIfGameIsInFavorites,
     getFlashGamesList,
     getFlashGames,
-    responseApi3
+    responseApi3,
+    deletefromfavorite
 
 };
 
