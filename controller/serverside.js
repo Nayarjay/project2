@@ -65,14 +65,16 @@ function authenticated(req, res, next) {
 app.get('/', (req, res) => {
   var found;
   var foundpc;
-  model.responseApi2(model.getGamesByPlateform('pc')) 
+  model.responseApi3(model.getGamesByPlateform()) 
   .then(function(response2) {
     //found = { games: response2 };
     //res.render('index', foundpc );
-    model.responseApi2(model.getTop10()) 
+    model.responseApi3(model.getTop10()) 
     .then(function(response) {
+      
       var firstGame = response.shift();
       found = { game: response, firstGame: firstGame ,games:response2};
+      //console.log(response2)
       res.render('index', found );
     });
 
@@ -113,9 +115,9 @@ app.get('/catalog/:tag/:plateform', (req, res) => {
   
   
   //console.log(toString(req.params.plateform));
-  console.log("Plateform: "+req.params.plateform);
+  //console.log("Plateform: "+req.params.plateform);
   const plat=toString(req.params.plateform);
-  console.log(plat)
+  //console.log(plat)
 
   model.responseApi2(model.GetGamesByTag(req.params.tag,req.params.plateform)) 
   .then(function(response) {
@@ -124,6 +126,8 @@ app.get('/catalog/:tag/:plateform', (req, res) => {
     //console.log(response)
     res.render('catalog',found )
    
+  }).catch(function(error) {
+    console.error(error);
   });
 
   // Example usage
@@ -138,7 +142,7 @@ app.get('/catalog/:tag/:plateform', (req, res) => {
 
 app.get('/read/:id', (req, res) => {
   var entry;
-
+  var results
   model.getGameDetails(req.params.id)
     .then(function(response) {
    
@@ -147,9 +151,11 @@ app.get('/read/:id', (req, res) => {
       
       Promise.all([gameExistsPromise])
         .then(function([gameExists]) {
-          entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
+
+          //entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
+          entry = {results:response,gameExists: gameExists};
           console.log("Boolean " + gameExists);
-          console.log()
+          //console.log()
           res.render('read', entry);
         })
     
