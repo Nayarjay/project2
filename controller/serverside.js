@@ -154,8 +154,7 @@ app.get('/read/:id', (req, res) => {
 
           //entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
           entry = {results:response,gameExists: gameExists};
-          console.log("Boolean " + gameExists);
-          //console.log()
+          
           res.render('read', entry);
         })
     
@@ -208,7 +207,7 @@ app.get('/login', (req, res) => {
 //fail one
 app.get('/loginFail', (req, res) => {
 
-  res.render('login',{fail:  'wrong password or username' });
+  res.render('login',{fail:  'Wrong password or username' });
 });
 
 
@@ -248,31 +247,43 @@ app.post('/logout', (req, res) => {
   res.redirect('/'); // Redirects the user to the homepage
 });
 
+app.get('/userexist', (req, res) => {
+
+  res.render('new_user',{fail:  'Password or username are already used!' });
+});
 app.post('/new_user', (req, res) => {
   const { name, password } = req.body;
-  // Vérifier si les champs sont renseignés
-  if (!name || !password) {
-    return res.redirect('/login?error=missing');
+ 
+  let result = model.new_user(name, password);
+  if (result == 3) {
+    return res.redirect('/userexist');
+  } else if (result != null) {
+    return res.redirect('/');
   }
-
-  let result = model.new_user(name,password);
-  if(result ==3){
-    res.redirect('/new_user?error=duplicate');
-    //res.redirect('/'); // Redirects the user to the homepage
-  }else if(result !=null){
-    res.redirect('/'); // Redirects the user to the homepage
-   
-  }
-  res.redirect('/new_user?error=duplicate');
 });
+app.post('/showmore', (req, res) => {
+  const {description,descontainer}= req.body;
 
+
+  if (description.offsetHeight > descontainer.offsetHeight) {
+  }
+
+  
+    if (description.classList.contains('expanded')) {
+      description.classList.remove('expanded');
+      readmore.innerHTML = 'Read more';
+    } else {
+      description.classList.add('expanded');
+      readmore.innerHTML = 'Read less';
+    }
+
+   res.render('read');
+
+});
 
 app.post('/add_favorite', async (req, res) => {
   const { idgame, title, thumbnail, description } = req.body;
   console.log(idgame + title +thumbnail +description );
-
-
- 
   try {
     const isAlreadyInFavorites = await model.checkIfGameIsInFavorites(req.session.userid, idgame);
     if (isAlreadyInFavorites) {

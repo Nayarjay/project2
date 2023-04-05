@@ -12,7 +12,7 @@
 <div class="justify-content-center bg-image">
 	&nbsp;
 	<div class="container-md py-4" style="background-color: rgba(255, 255, 255, 0.9); box-shadow: 0px 0px 5px 2px #5168c2;margin-top: 10%; border-radius: 2%;">
-		<h1 class="text-center">Créer votre compte !</h1>
+		<h1 class="text-center">Create your account !</h1>
 
 		<form method="POST" action="/new_user">
 			<div class="row justify-content-center">
@@ -30,18 +30,18 @@
 					&nbsp;
 				  </div>
 				  <div class="form-group">
-					<label class="form-label" for="loginName" style="margin-left: 0px;"> Nom</label>
-					<input  id="name" name="name" class="form-control">
+					<label class="form-label" for="loginName" style="margin-left: 0px;"> Name</label>
+					<input  id="name" name="name" class="form-control" required>
 				  </div>
 				  <div class="form-group">
-					<label class="form-label" for="loginPassword" style="margin-left: 0px;">Mot de passe</label>  
-					<input type="password" type="password" id="password" name="password" class="form-control">
+					<label class="form-label" for="loginPassword" style="margin-left: 0px;">Password</label>  
+					<input type="password" type="password" id="password" name="password" class="form-control" required>
 				  </div>
-				  <div> &nbsp; </div>
+				  <div> <p class="text-danger">{{ fail }}</p></div>
 
 				  
 				  <div class="form-group">
-					<button type="submit" class="btn btn-primary btn-block mb-4">Créer</button>
+					<button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
 				  </div>
 				  <div class="form-group">
 					&nbsp;
