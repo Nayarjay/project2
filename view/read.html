@@ -1,16 +1,19 @@
 {{> header}}
+
   <div class="grid" style="margin-top: 10%;">
     <div class="container">
       
-      <div class="row" style="display: flex;justify-content: center;">
+      <div class="row" style="display: flex;justify-content: center; ">
         {{#results}}
-          <div  class="col-md-4" >
+          <div  class="col-sm-4" style="background-color: rgba(255, 255, 255, 0.75);">
         
               <h1>{{title}}</h1>
-              
-              
-            
-              <p> {{description}}</p>
+              <div class="description-container">
+                <p class="description">{{description}}</p>
+              </div>
+              <a class="read-more-link">read more</a>
+              <div>&nbsp;</div>
+              <div>
               <a href="{{game_url}}"  class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
               <ul style="list-style-type: circle;">
                 <li>publisher:{{publisher}}</li>
@@ -19,77 +22,7 @@
                 <li>genre:{{genre}}</li>
 
               </ul>
-
-
-            
-              <div  >
-               
-                {{#minimum_system_requirements}}
-                  <ul style="list-style-type: circle;">
-                    <li style="list-style: none;"><h2> Configuration </h2></li>
-                    <li>os: {{os}}</li>
-                    <li>processor: {{processor}}</li>
-                    <li>memory:{{memory}}</li>
-                    <li>graphics:{{graphics}}</li>
-                    <li>storage:{{storage}}</li>
-                
-
-                  </ul>
-                
-    
-                {{/minimum_system_requirements}}
-
-                
-              </div>
-             
-          
-    
-          </div>
-          <div class="col-md-4" style="margin-top: 0%;margin-left: 5%;"> 
-             <img src="{{thumbnail}}" style="margin-left: 5%;border: 2px solid rgb(196, 87, 68);" >
-             <h2 style="display: flex;justify-content: center;">Gameplay</h2>
-              <div  >
-              
-                {{#screenshots}}
-                  <div style="display: flex;justify-content: center;">
-                    <img src="{{image}}"  style="margin-left: 0%;margin-top: 2%;border-radius: 3%;border: 2px solid rgb(253, 240, 213);" height="200"  width="300"   >
-                  </div>
-                  
-              
-              
-
-                {{/screenshots}}
-              </div>
-          
-
-
-                  
-          
-            
-            </div>
-
-
-            <div class="col-md-4">
-             
-
-
-
-
-
-            </div>
-
-      
-
-          
-         
-           
-  
-  
-      </div>
-     
-    </div>
-
-    {{#authenticated}}
+              {{#authenticated}}
     
 
       {{^gameExists}}
@@ -118,9 +51,109 @@
       {{/gameExists}}
     
     {{/authenticated}}
+              </div>
+
+            
+              <div  >
+               
+                {{#minimum_system_requirements}}
+                  <ul style="list-style-type: circle;">
+                    <li style="list-style: none;"><h2> Configuration </h2></li>
+                    <li>os: {{os}}</li>
+                    <li>processor: {{processor}}</li>
+                    <li>memory:{{memory}}</li>
+                    <li>graphics:{{graphics}}</li>
+                    <li>storage:{{storage}}</li>
+                
+
+                  </ul>
+                
+    
+                {{/minimum_system_requirements}}
+
+                
+              </div>
+             
+          
+    
+          </div>
+        
+
+
+            <div class="col-lg-8">
+             
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img id="main-image" src="{{thumbnail}}" style="margin-top: 10px; border: 2px solid rgb(196, 87, 68); max-width: 100%; height: 400px; object-fit: contain;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                  {{#screenshots}}
+                  <img src="{{image}}" style="margin: 10px; border-radius: 3%; border: 2px solid rgb(253, 240, 213); height: 200px; width: 250px; object-fit: cover; cursor: pointer;" onclick="document.querySelector('#main-image').src='{{image}}';">
+                  {{/screenshots}}
+                </div>
+              </div>
+              
+
+
+
+
+            </div>
+
+      
+
+          
+         
+           
+  
+  
+      </div>
+     
+    </div>
+
+    
     
     {{/results}}
   </div>
-  
- 
+        <style>
+           body{
+            background: none;
+            background-size: cover;
+            background-repeat: no-repeat;
+          }
+          .description-container {
+            height: 195px;
+            overflow: hidden;
+          }
+
+          .description.expanded {
+            height: auto;
+          }
+        </style> 
+ <script>
+  const mainImage = document.querySelector("#main-image");
+  const backgroundImageElement = document.querySelector("#BackgroundImage");
+
+  if (mainImage ) {
+    const backgroundImageUrl = mainImage.getAttribute("src");
+    console.log(backgroundImageUrl);
+
+    document.body.style.backgroundImage = `url('${backgroundImageUrl}')`;
+  }
+  const container = document.querySelector('.description-container');
+  const description = document.querySelector('.description');
+  const readmore = document.querySelector('.read-more-link');
+
+  if (description.scrollHeight > 195) {
+    readmore.addEventListener('click', () => {
+      if (description.classList.contains('expanded')) {
+        description.classList.remove('expanded');
+        container.style.height = '195px';
+        readmore.innerHTML = 'Show more';
+      } else {
+        description.classList.add('expanded');
+        container.style.height = 'auto';
+        readmore.innerHTML = 'Show less';
+      }
+    });
+  }
+
+ </script>
 {{> footer}}
