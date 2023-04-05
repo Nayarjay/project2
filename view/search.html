@@ -23,7 +23,7 @@
             </div>
             <div class="card-body">
            
-               <h3 class="card-text text-center">{{title}}</h3>
+               <h3 class="card-text text-center" id="title2">{{title}}</h3>
               <div style="display: flex;justify-content: center;margin-top: 5%;"><p id="plateformInfo">{{platform}}</p></div>
                
    
@@ -119,3 +119,27 @@
   
   
   </script>
+
+<script>
+
+        
+  //const title2 = document.getElementById("title2");
+  var title2 = document.querySelectorAll("#title2");
+
+
+ title2.forEach(function(title) {
+  
+    //console.log(title.textContent);
+   if (title.textContent.length>20) {
+     // Reduce the font size of the title
+     title.style.fontSize = "1.24rem";
+
+
+    }  
+
+ })
+
+
+
+
+</script>

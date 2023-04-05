@@ -133,20 +133,26 @@
 
 
    title2.forEach(function(title) {
-     const titleStyles = window.getComputedStyle(title);
-     const titleHeight = title.offsetHeight;
-     const lineHeight = parseInt(titleStyles.lineHeight);
-     const isTwoLines = titleHeight >= 2 * lineHeight;
-       console.log(title.textContent)
-     if (isTwoLines) {
+    
+      console.log(title.textContent);
+     /*if (isTwoLines) {
        // Reduce the font size of the title
        title.style.fontSize = "1rem";
-     }  
+     }  */
 
    })
-
   
 
 
 
   </script>
+
+<script>
+  const titleElement = document.getElementById('title');
+  const titleText = titleElement.textContent;
+  
+  if (titleText.length > 20) {
+    console.log(titleText.textContent)
+    titleElement.style.fontSize = '1.5rem'; // You can adjust the font size to your liking
+  }
+</script>
