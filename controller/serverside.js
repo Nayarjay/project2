@@ -184,8 +184,9 @@ app.get('/play/:id',is_authenticated, (req, res) => {
 
 app.get('/favorite',is_authenticated, (req, res) => {
   //var entry = model.read(req.params.id);
- 
-  res.render('favorite');
+  var data=model.getFavoriteGames(req.session.userid)
+  //console.log(data)
+  res.render('favorite',data);
 });
   
 app.get('/update/:id',is_authenticated, (req, res) => {
@@ -309,7 +310,7 @@ app.post('/deletefromfavorite', async(req,res)=>{
 
 });
 
-
+//
 /**** Routes pour modifier les données ****/
 
 // Fonction qui facilite la création d'une recette
