@@ -1,81 +1,106 @@
-
 {{> header}} 
 
-    <div clas="main" style="margin-top: 0%;">
+<div class="main">
+  <div class="left-column"></div>
+  
+  <div class="middle-column" style="background-color: #B2DCE2;">
+    <div clas="main" style="margin-top: 10%; background-color: #B2DCE2;">
 
-        <div class="jumbotron jumbotron-fluid" style="margin-left: 20%;margin-top: 10%;">
-          <div class="container container-fluid " >
-            <h1 class="display-4">Top Free Anime Games for Browser In 2023!</h1>
-            
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="margin-right: 30%;">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  {{#firstGame}}
-                      <a href="/read/{{id}}">
-                        <img src="{{thumbnail}}" class="d-block w-100" alt="...">
-                      </a>
-                    {{/firstGame}}
-                </div>
-                {{#game}}
-                    <div class="carousel-item">
-                      <a href="/read/{{id}}">
-                        <img src="{{thumbnail}}" class="d-block w-100" alt="...">
-                      </a>
-                    </div>
-                {{/game}}
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-
-            <div class="row">
-              {{#games}}
-              <div class="col">
-                <div class="card" style="width: 18rem;">
-                  <img src="{{thumbnail}}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">{{title}}</h5>
-                    
-                    <ul >
-                      <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
-                      <li>
-                        <p id="plateformInfo">{{platform}}</p>
-                        <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
-                      </li>
-                     
-
-                    </ul>
-                   
-                  
-                  </div>
-                </div>
-              </div>
-              {{/games}}
-            </div>
+      <div class="jumbotron jumbotron-fluid" style="margin-top: 10%;">
+        <div class="container container-fluid " >
+          <h1 class="display-4">Top Free Anime Games for Browser In 2023!</h1>
           
-
-
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                {{#firstGame}}
+                    <a href="/read/{{id}}">
+                      <img src="{{thumbnail}}" class="d-block w-100" alt="...">
+                    </a>
+                  {{/firstGame}}
+              </div>
+              {{#game}}
+                  <div class="carousel-item">
+                    <a href="/read/{{id}}">
+                      <img src="{{thumbnail}}" class="d-block w-100" alt="...">
+                    </a>
+                  </div>
+              {{/game}}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
-        </div>  
-  </div> 
+
+          <div class="row" >
+            {{#games}}
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <img src="{{thumbnail}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">{{title}}</h5>
+                  
+                  <ul >
+                    <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
+                    <li>
+                      <p id="plateformInfo">{{platform}}</p>
+                      <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
+                    </li>
+                   
+
+                  </ul>
+                 
+                
+                </div>
+              </div>
+            </div>
+            {{/games}}
+          </div>
+        
 
 
+        </div>
+      </div>  
+    </div> 
+  </div>
   
-
- 
- 
-
+  <div class="right-column"></div>
+</div>
 {{> footer}}
+<style>
+  .main {
+  display: flex;
+  justify-content: space-between;
+}
 
+.left-column,
+.right-column {
+  width: 20%;
+  height: 300vh;
+  background-image: url('https://cdn.discordapp.com/attachments/1029695073018982471/1093201871805632683/stickers-fond-transparent-de-jeu-video.jpg.jpg');
+  background-repeat: repeat;
+}
 
+.middle-column {
+  width: 100%;
+  padding: 0 10px;
+}
+.card{
+  border: 2px solid rgb(253, 240, 213);
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+}
 
-  
+.card:hover{
+  transform: scale(1.05);
+       
+       
+}
+</style>
 
 
 
@@ -83,40 +108,36 @@
 
 
 
-// get all the elements with id "plateformInfo"
-var infoElements = document.querySelectorAll("#plateformInfo");
-
-// loop through the elements
-infoElements.forEach(function(info) {
-  var image = document.createElement("img");
-
-  if(info.textContent == 'Web Browser'){
-
-    // create an image element
+  // get all the elements with id "plateformInfo"
+  var infoElements = document.querySelectorAll("#plateformInfo");
   
-    image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
-    image.height = "48";
-    image.width = "48";
+  // loop through the elements
+  infoElements.forEach(function(info) {
+    var image = document.createElement("img");
+  
+    if(info.textContent == 'Web Browser'){
+  
+      // create an image element
     
-    // replace the existing text with the image
-    info.textContent = "";
-    info.appendChild(image);
-    
-  }if(info.textContent == 'PC (Windows)') {
-
-    // create an image element
-    image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
-    image.height = "48";
-    image.width = "48";
-    
-    // replace the existing text with the image
-    info.textContent = "";
-    info.appendChild(image);
-
-  }
-});
-
-
-
-
-</script>
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
+      image.height = "48";
+      image.width = "48";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+      
+    }if(info.textContent == 'PC (Windows)') {
+  
+      // create an image element
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
+      image.height = "48";
+      image.width = "48";
+      
+      // replace the existing text with the image
+      info.textContent = "";
+      info.appendChild(image);
+  
+    }
+  });
+  </script>
