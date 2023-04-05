@@ -15,11 +15,11 @@
               <div>&nbsp;</div>
               <div>
               <a href="{{game_url}}"  class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
-              <ul style="list-style-type: circle;">
-                <li>publisher:{{publisher}}</li>
-                <li>developer:{{developer}}</li>
-                <li>release_date:{{release_date}}</li>
-                <li>genre:{{genre}}</li>
+              <ul style="list-style-type: none;">
+                <li>publisher: {{publisher}}</li>
+                <li>developer: {{developer}}</li>
+                <li>release_date: {{release_date}}</li>
+                <li>genre: {{genre}}</li>
 
               </ul>
               {{#authenticated}}
@@ -57,13 +57,13 @@
               <div  >
                
                 {{#minimum_system_requirements}}
-                  <ul style="list-style-type: circle;">
+                  <ul style="list-style-type: none;">
                     <li style="list-style: none;"><h2> Configuration </h2></li>
                     <li>os: {{os}}</li>
                     <li>processor: {{processor}}</li>
-                    <li>memory:{{memory}}</li>
-                    <li>graphics:{{graphics}}</li>
-                    <li>storage:{{storage}}</li>
+                    <li>memory: {{memory}}</li>
+                    <li>graphics: {{graphics}}</li>
+                    <li>storage: {{storage}}</li>
                 
 
                   </ul>

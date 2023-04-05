@@ -182,9 +182,9 @@ app.get('/play/:id',is_authenticated, (req, res) => {
 
 
 app.get('/favorite',is_authenticated, (req, res) => {
-  //var entry = model.read(req.params.id);
-  var data=model.getFavoriteGames(req.session.userid)
-  //console.log(data)
+  
+  var data={results:model.getFavoriteGames(req.session.userid)}
+  
   res.render('favorite',data);
 });
   
