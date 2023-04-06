@@ -37,25 +37,23 @@
             </button>
           </div>
 
-          <div class="row" >
-            {{#games}}
-            <div class="col">
-              <div class="card" style="width: 18rem;">
-                <img src="{{thumbnail}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title" style="text-align: center;">{{title}}</h5>
-                  
-                  <ul >
-                    <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
-                    <li>
-                      <p id="plateformInfo">{{platform}}</p>
-                      <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
-                    </li>
-                   
+            <div class="row">
+              {{#games}}
+              <div class="col">
+                <div class="card" style="width: 18rem;">
+                  <img src="{{thumbnail}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title" style="text-align: center;">{{title}}</h5>
+                    
+                    <ul style="display: flex;">
+                      <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
+                      <li>
+                        <p id="plateformInfo">{{platform}}</p>
+                        <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
+                      </li>
+                     
 
-                  </ul>
-                 
-                
+                    </ul>
                 </div>
               </div>
             </div>

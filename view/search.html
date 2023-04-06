@@ -17,13 +17,13 @@
       {{#results}}
       <div class="col-md-4">
         <a href="/read/{{id}}" style="text-decoration: none;color: rgb(253, 240, 213);">
-          <div class="card mb-4 box-shadow" style="background-color:  rgb(0, 48, 73);border-radius: 2%;">
+          <div class="card mb-4 box-shadow" style="background-color:  rgb(0, 48, 73);border-radius: 2%;" >
             <div class="card-img-container d-flex justify-content-center align-items-center">
               <img src="{{thumbnail}}" class="card-img-top ">
             </div>
             <div class="card-body">
            
-               <h3 class="card-text text-center">{{title}}</h3>
+               <h3 class="card-text text-center" id="title2">{{title}}</h3>
               <div style="display: flex;justify-content: center;margin-top: 5%;"><p id="plateformInfo">{{platform}}</p></div>
                
    
@@ -50,7 +50,7 @@
   }
 
     .card{
-        /*height: 700px;*/
+        height: 350px;
         border: 2px solid rgb(253, 240, 213);
         box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     
@@ -119,3 +119,27 @@
   
   
   </script>
+
+<script>
+
+        
+  //const title2 = document.getElementById("title2");
+  var title2 = document.querySelectorAll("#title2");
+
+
+ title2.forEach(function(title) {
+  
+    //console.log(title.textContent);
+   if (title.textContent.length>20) {
+     // Reduce the font size of the title
+     title.style.fontSize = "1.24rem";
+
+
+    }  
+
+ })
+
+
+
+
+</script>

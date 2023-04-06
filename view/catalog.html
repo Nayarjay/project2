@@ -43,7 +43,7 @@
 <style>
 
     .card{
-        /*height: 700px;*/
+        height: 350px;
         border: 2px solid rgb(253, 240, 213);
         box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     
@@ -125,28 +125,27 @@
   
   </script>
 
-  <script>
+<script>
 
         
-    //const title2 = document.getElementById("title2");
-    var title2 = document.querySelectorAll("#title2");
+  //const title2 = document.getElementById("title2");
+  var title2 = document.querySelectorAll("#title2");
 
 
-   title2.forEach(function(title) {
-     const titleStyles = window.getComputedStyle(title);
-     const titleHeight = title.offsetHeight;
-     const lineHeight = parseInt(titleStyles.lineHeight);
-     const isTwoLines = titleHeight >= 2 * lineHeight;
-       console.log(title.textContent)
-     if (isTwoLines) {
-       // Reduce the font size of the title
-       title.style.fontSize = "1rem";
-     }  
-
-   })
-
+ title2.forEach(function(title) {
   
+    //console.log(title.textContent);
+   if (title.textContent.length>20) {
+     // Reduce the font size of the title
+     title.style.fontSize = "1.24rem";
+
+
+    }  
+
+ })
 
 
 
-  </script>
+
+</script>
+ 

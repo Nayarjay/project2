@@ -66,6 +66,14 @@ async function checkIfGameIsInFavorites(userId, gameId) {
 
 function getFlashGames(idgame){
   var results = db.prepare('SELECT * from GAME where id = ?').get(idgame);
+  console.log(results);
+  return results;
+  console.log(results);
+}
+
+function getFavoriteGames(iduser){
+  var results = db.prepare('SELECT * from FAVORITE where iduser = ?').get(iduser);
+  console.log(results);
   return results;
   console.log(results);
 }
@@ -187,7 +195,8 @@ module.exports = {
     getFlashGamesList,
     getFlashGames,
     responseApi3,
-    deletefromfavorite
+    deletefromfavorite,
+    getFavoriteGames
 
 };
 
