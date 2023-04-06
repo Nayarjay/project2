@@ -14,7 +14,7 @@
          
           <div>&nbsp;</div>
           <div>
-            <a href="{{game_url}}" class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
+            <a href="{{game_url}}" class="btn btn-warning" style="margin-bottom: 2%;">go to Download</a>
             <ul style="list-style-type: none;">
               <li>publisher: {{publisher}}</li>
               <li>developer: {{developer}}</li>
@@ -23,7 +23,7 @@
             </ul>
             {{#authenticated}}
             {{^gameExists}}
-            <form method="POST" action="/add_favorite" style="margin-left: 50%;">
+            <form method="POST" action="/add_favorite" style="margin-top: 2%;">
               <input type="hidden" name="idgame" value="{{id}}">
               <input type="hidden" name="title" value="{{title}}">
               <input type="hidden" name="thumbnail" value="{{thumbnail}}">
@@ -33,7 +33,7 @@
             </form>
             {{/gameExists}}
             {{#gameExists}}
-            <form method="post" action="/deletefromfavorite" style="margin-left: 50%;">
+            <form method="post" action="/deletefromfavorite" style="margin-top: 2%;">
               <input type="hidden" name="idgame" value="{{id}}">
               <input type="hidden" name="title" value="{{title}}">
               <input type="hidden" name="thumbnail" value="{{thumbnail}}">
