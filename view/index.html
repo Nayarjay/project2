@@ -37,16 +37,18 @@
             </button>
           </div>
 
-            <div class="row">
+            <div class="row" style="margin-top: 10%;">
               {{#games}}
               <div class="col">
-                <div class="card" style="width: 18rem;">
+                <a href="/read/{{id}}" style="text-decoration: none;color: rgb(246, 244, 241);">
+
+                <div div class="card mb-4 box-shadow" style="background-color:#B2DCE2;border-radius: 2%;">
                   <img src="{{thumbnail}}" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;">{{title}}</h5>
+                    <h5 class="card-title" style="text-align: center;  color: #2362CA;">{{title}}</h5>
                     
-                    <ul style="display: flex;">
-                      <li><a href="/read/{{id}}" class="btn btn-primary">See more</a></li>
+                    <ul style="display: flex; margin-top: 10%;">
+                      <li><a href="/read/{{id}}" class="btn btn-primary" style="background-color: transparent; color: #2362CA;">See more</a></li>
                       <li>
                         <p id="plateformInfo">{{platform}}</p>
                         <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
@@ -79,7 +81,7 @@
 .left-column,
 .right-column {
   width: 20%;
-  height: 300vh;
+  height: 400vh;
   background-image: url('https://cdn.discordapp.com/attachments/1029695073018982471/1093201871805632683/stickers-fond-transparent-de-jeu-video.jpg.jpg');
   background-repeat: repeat;
 }
@@ -89,7 +91,7 @@
   padding: 0 10px;
 }
 .card{
-  border: 2px solid rgb(253, 240, 213);
+  border: 2px solid rgb(7, 7, 7);
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
 }
 
@@ -117,9 +119,9 @@
   
       // create an image element
     
-      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
-      image.height = "48";
-      image.width = "48";
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1093328465916342312/icons8-website-48.png";  
+      image.height = "40";
+      image.width = "40";
       
       // replace the existing text with the image
       info.textContent = "";
@@ -128,9 +130,9 @@
     }if(info.textContent == 'PC (Windows)') {
   
       // create an image element
-      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
-      image.height = "48";
-      image.width = "48";
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1093324820353134592/icons8-pc-game-64.png";
+      image.height = "40";
+      image.width = "40";
       
       // replace the existing text with the image
       info.textContent = "";
