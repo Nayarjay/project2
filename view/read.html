@@ -99,7 +99,7 @@
 <style>
   body {
     
-   
+    position: relative;
     background-size: cover;
     background-repeat: no-repeat;
    /* backdrop-filter: blur(10px);
@@ -149,5 +149,30 @@
 }
 
 </style>
+
+<script>
+
+        
+  //const title2 = document.getElementById("title2");
+  var title2 = document.querySelectorAll("#title2");
+
+
+ title2.forEach(function(title) {
+  
+    //console.log(title.textContent);
+   if (title.textContent.length>20) {
+     // Reduce the font size of the title
+     title.style.fontSize = "1.24rem";
+
+
+    }  
+
+ })
+
+
+
+
+</script>
+ 
 
 {{> footer}}
