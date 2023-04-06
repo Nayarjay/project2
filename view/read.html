@@ -1,159 +1,153 @@
 {{> header}}
 
+
+<div class="blur-effect"></div>
   <div class="grid" style="margin-top: 10%;">
-    <div class="container">
-      
+    <div class="container" >
       <div class="row" style="display: flex;justify-content: center; ">
         {{#results}}
-          <div  class="col-sm-4" style="background-color: rgba(255, 255, 255, 0.75);">
-        
-              <h1>{{title}}</h1>
-              <div class="description-container">
-                <p class="description">{{description}}</p>
-              </div>
-              <a class="read-more-link">read more</a>
-              <div>&nbsp;</div>
-              <div>
-              <a href="{{game_url}}"  class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
-              <ul style="list-style-type: circle;">
-                <li>publisher:{{publisher}}</li>
-                <li>developer:{{developer}}</li>
-                <li>release_date:{{release_date}}</li>
-                <li>genre:{{genre}}</li>
-
-              </ul>
-              {{#authenticated}}
-    
-
-      {{^gameExists}}
-        <form method="POST" action="/add_favorite" style="margin-left: 50%;">
-          <input type="hidden" name="idgame" value="{{id}}">
-          <input type="hidden" name="title" value="{{title}}">
-          <input type="hidden" name="thumbnail" value="{{thumbnail}}">
-          <input type="hidden" name="description" value="{{short_description}}">
-        
-          <button type="submit">add favorite</button>
-        </form>
-        
-      
-
-      {{/gameExists}}
-
-      {{#gameExists}}
-      <form method="post" action="/deletefromfavorite" style="margin-left: 50%;">
-        <input type="hidden" name="idgame" value="{{id}}">
-        <input type="hidden" name="title" value="{{title}}">
-        <input type="hidden" name="thumbnail" value="{{thumbnail}}">
-        <input type="hidden" name="description" value="{{short_description}}">
-      
-        <button type="submit">Delete from favorite</button>
-      </form>
-      {{/gameExists}}
-    
-    {{/authenticated}}
-              </div>
-
-            
-              <div  >
-               
-                {{#minimum_system_requirements}}
-                  <ul style="list-style-type: circle;">
-                    <li style="list-style: none;"><h2> Configuration </h2></li>
-                    <li>os: {{os}}</li>
-                    <li>processor: {{processor}}</li>
-                    <li>memory:{{memory}}</li>
-                    <li>graphics:{{graphics}}</li>
-                    <li>storage:{{storage}}</li>
-                
-
-                  </ul>
-                
-    
-                {{/minimum_system_requirements}}
-
-                
-              </div>
-             
-          
-    
+        <div class="col-sm-4" style="background-color: rgba(255, 255, 255, 0.75);">
+          <h1>{{title}}</h1>
+          <div class="description-container">
+            <p class="description" >{{description}}</p>
           </div>
-        
-
-
-            <div class="col-lg-8">
-             
-              <div style="display: flex; flex-direction: column; align-items: center;">
-                <img id="main-image" src="{{thumbnail}}" style="margin-top: 10px; border: 2px solid rgb(196, 87, 68); max-width: 100%; height: 400px; object-fit: contain;">
-                <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                  {{#screenshots}}
-                  <img src="{{image}}" style="margin: 10px; border-radius: 3%; border: 2px solid rgb(253, 240, 213); height: 200px; width: 250px; object-fit: cover; cursor: pointer;" onclick="document.querySelector('#main-image').src='{{image}}';">
-                  {{/screenshots}}
-                </div>
-              </div>
-              
-
-
-
-
-            </div>
-
-      
-
-          
          
-           
-  
-  
-      </div>
-     
-    </div>
+          <div>&nbsp;</div>
+          <div>
+            <a href="{{game_url}}" class="btn btn-warning" style="margin-bottom: 2%;">go to Download</a>
+            <ul style="list-style-type: none;">
+              <li>publisher: {{publisher}}</li>
+              <li>developer: {{developer}}</li>
+              <li>release_date: {{release_date}}</li>
+              <li>genre: {{genre}}</li>
+            </ul>
+            {{#authenticated}}
+            {{^gameExists}}
+            <form method="POST" action="/add_favorite" style="margin-top: 2%;">
+              <input type="hidden" name="idgame" value="{{id}}">
+              <input type="hidden" name="title" value="{{title}}">
+              <input type="hidden" name="thumbnail" value="{{thumbnail}}">
+              <input type="hidden" name="description" value="{{short_description}}">
 
-    
-    
+              <button type="submit" class="btn btn-info">add to favorite</button>
+            </form>
+            {{/gameExists}}
+            {{#gameExists}}
+            <form method="post" action="/deletefromfavorite" style="margin-top: 2%;">
+              <input type="hidden" name="idgame" value="{{id}}">
+              <input type="hidden" name="title" value="{{title}}">
+              <input type="hidden" name="thumbnail" value="{{thumbnail}}">
+              <input type="hidden" name="description" value="{{short_description}}">
+
+              <button type="submit" class="btn btn-danger">Delete from favorite</button>
+            </form>
+            {{/gameExists}}
+            {{/authenticated}}
+          </div>
+          <div>
+            {{#minimum_system_requirements}}
+            <ul style="list-style-type: none;">
+              <li style="list-style: none;">
+                <h2> Configuration </h2>
+              </li>
+              <li>os: {{os}}</li>
+              <li>processor: {{processor}}</li>
+              <li>memory: {{memory}}</li>
+              <li>graphics: {{graphics}}</li>
+              <li>storage: {{storage}}</li>
+            </ul>
+            {{/minimum_system_requirements}}
+          </div>
+        </div>
+        <div class="col-lg-8">
+
+          <div style="display: flex; flex-direction: column; align-items: center;">
+            <img id="main-image" src="{{thumbnail}}"
+              style="margin-top: 10px; border: 2px solid rgb(196, 87, 68); max-width: 100%; height: 400px; object-fit: contain;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+              {{#screenshots}}
+              <img src="{{image}}"
+                style="margin: 10px; border-radius: 3%; border: 2px solid rgb(253, 240, 213); height: 200px; width: 250px; object-fit: cover; cursor: pointer;"
+                onclick="document.querySelector('#main-image').src='{{image}}';">
+              {{/screenshots}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     {{/results}}
   </div>
-        <style>
-           body{
-            background: none;
-            background-size: cover;
-            background-repeat: no-repeat;
-          }
-          .description-container {
-            height: 195px;
-            overflow: hidden;
-          }
 
-          .description.expanded {
-            height: auto;
-          }
-        </style> 
- <script>
+
+
+
+<script>
   const mainImage = document.querySelector("#main-image");
   const backgroundImageElement = document.querySelector("#BackgroundImage");
 
-  if (mainImage ) {
+  if (mainImage) {
     const backgroundImageUrl = mainImage.getAttribute("src");
     console.log(backgroundImageUrl);
 
     document.body.style.backgroundImage = `url('${backgroundImageUrl}')`;
   }
-  const container = document.querySelector('.description-container');
-  const description = document.querySelector('.description');
-  const readmore = document.querySelector('.read-more-link');
 
-  if (description.scrollHeight > 195) {
-    readmore.addEventListener('click', () => {
-      if (description.classList.contains('expanded')) {
-        description.classList.remove('expanded');
-        container.style.height = '195px';
-        readmore.innerHTML = 'Show more';
-      } else {
-        description.classList.add('expanded');
-        container.style.height = 'auto';
-        readmore.innerHTML = 'Show less';
-      }
-    });
+
+</script>
+
+
+<style>
+  body {
+    
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
   }
 
- </script>
+ 
+
+
+  .description-container {
+    height: 195px;
+    overflow: auto;
+    
+  }
+  
+
+  .description.expanded {
+    height: auto;
+  }
+
+
+
+
+
+/* Style the scrollbar track */
+.description-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Style the scrollbar thumb */
+.description-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* Hide the scrollbar when not hovered */
+.description-container::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f1f1f1;
+}
+
+.description-container:hover::-webkit-scrollbar-thumb {
+  background-color: #555;
+}
+
+</style>
+
 {{> footer}}

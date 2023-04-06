@@ -29,7 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.engine('html', mustache());
 app.set('view engine', 'html');
 app.set('views', './view');
-app.use(express.static('./view/css'))
+app.use(express.static('./view/css'));
+app.use(express.static('./view/image'))
 
 app.use(cookieSession({
   secret: 'mot-de-passe-du-cookie',
@@ -154,6 +155,8 @@ app.get('/read/:id', (req, res) => {
 
           //entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
           entry = {results:response,gameExists: gameExists};
+
+          console.log(entry)
           
           res.render('read', entry);
         })
@@ -182,9 +185,9 @@ app.get('/play/:id',is_authenticated, (req, res) => {
 
 
 app.get('/favorite',is_authenticated, (req, res) => {
-  //var entry = model.read(req.params.id);
-  var data=model.getFavoriteGames(req.session.userid)
-  //console.log(data)
+  
+  var data={results:model.getFavoriteGames(req.session.userid)}
+  
   res.render('favorite',data);
 });
   

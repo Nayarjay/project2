@@ -72,7 +72,7 @@ function getFlashGames(idgame){
 }
 
 function getFavoriteGames(iduser){
-  var results = db.prepare('SELECT * from FAVORITE where iduser = ?').get(iduser);
+  var results = db.prepare('SELECT * from FAVORITE where iduser = ?').all(iduser);
   console.log(results);
   return results;
   console.log(results);
