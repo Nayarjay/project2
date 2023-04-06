@@ -263,7 +263,7 @@ function responseApi3(options) {
     });
 
     //console.log(filteredData);
-    return filteredData.slice(0, 20);
+    return filteredData.slice(0, 21);
   }).catch(function(error) {
     console.error(error);
   });
