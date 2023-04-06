@@ -11,7 +11,7 @@
           <div class="description-container">
             <p class="description" >{{description}}</p>
           </div>
-          <a class="read-more-link">read more</a>
+         
           <div>&nbsp;</div>
           <div>
             <a href="{{game_url}}" class="btn btn-outline-warning" style="margin-bottom: 2%;">go to Download</a>
@@ -79,12 +79,26 @@
   </div>
 
 
+
+
+<script>
+  const mainImage = document.querySelector("#main-image");
+  const backgroundImageElement = document.querySelector("#BackgroundImage");
+
+  if (mainImage) {
+    const backgroundImageUrl = mainImage.getAttribute("src");
+    console.log(backgroundImageUrl);
+
+    document.body.style.backgroundImage = `url('${backgroundImageUrl}')`;
+  }
+
+
+</script>
+
+
 <style>
   body {
-    /*background: none;
-    background-size: cover;
-    background-repeat: no-repeat;
-    /*backdrop-filter: blur(15px);*/
+    
    
     background-size: cover;
     background-repeat: no-repeat;
@@ -134,37 +148,6 @@
   background-color: #555;
 }
 
-
 </style>
 
-
-<script>
-  const mainImage = document.querySelector("#main-image");
-  const backgroundImageElement = document.querySelector("#BackgroundImage");
-
-  if (mainImage) {
-    const backgroundImageUrl = mainImage.getAttribute("src");
-    console.log(backgroundImageUrl);
-
-    document.body.style.backgroundImage = `url('${backgroundImageUrl}')`;
-  }
-  const container = document.querySelector('.description-container');
-  const description = document.querySelector('.description');
-  const readmore = document.querySelector('.read-more-link');
-
-  if (description.scrollHeight > 195) {
-    readmore.addEventListener('click', () => {
-      if (description.classList.contains('expanded')) {
-        description.classList.remove('expanded');
-        container.style.height = '195px';
-        readmore.innerHTML = 'Show more';
-      } else {
-        description.classList.add('expanded');
-        container.style.height = 'auto';
-        readmore.innerHTML = 'Show less';
-      }
-    });
-  }
-
-</script>
 {{> footer}}
