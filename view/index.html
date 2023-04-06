@@ -40,23 +40,35 @@
             <div class="row" style="margin-top: 10%;">
               {{#games}}
               <div class="col">
-                <a href="/read/{{id}}" style="text-decoration: none;color: rgb(246, 244, 241);">
+                <!--<a href="/read/{{id}}" style="text-decoration: none;color: rgb(246, 244, 241);">-->
+                  <a href="/read/{{id}}" style="text-decoration: none;color: rgb(246, 244, 241);">
 
-                <div div class="card mb-4 box-shadow" style="background-color:#B2DCE2;border-radius: 2%;">
-                  <img src="{{thumbnail}}" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title" style="text-align: center;  color: #2362CA;">{{title}}</h5>
-                    
-                    <ul style="display: flex; margin-top: 10%;">
-                      <li><a href="/read/{{id}}" class="btn btn-primary" style="background-color: transparent; color: #2362CA;">See more</a></li>
-                      <li>
-                        <p id="plateformInfo">{{platform}}</p>
-                        <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
-                      </li>
-                     
 
-                    </ul>
-                </div>
+
+                    <div div class="card mb-4 box-shadow" style="background-color:#B2DCE2;border-radius: 2%;" >
+                      <img src="{{thumbnail}}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title" style="text-align: center;  color: #2362CA;" id="title2">{{title}}</h5>
+                       
+                        
+                        <ul style="display: flex; justify-content: center;">
+                          
+                          <li>
+                            <p id="plateformInfo">{{platform}}</p>
+                            <!--<img src="https://i.postimg.cc/tCXYBQLk/browser.png" height="64" width="64">-->
+                          </li>
+                         
+    
+                        </ul>
+                    </div>
+                  
+                  
+
+
+
+
+                  </a>
+              
               </div>
             </div>
             {{/games}}
@@ -91,6 +103,7 @@
   padding: 0 10px;
 }
 .card{
+  height: 255px;
   border: 2px solid rgb(7, 7, 7);
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
 }
@@ -141,3 +154,35 @@
     }
   });
   </script>
+
+<script>
+
+        
+  //const title2 = document.getElementById("title2");
+  var title2 = document.querySelectorAll("#title2");
+
+
+ title2.forEach(function(title) {
+  
+    //console.log(title.textContent);
+   /*if (title.textContent.length>12) {
+     // Reduce the font size of the title
+     title.style.fontSize = "1rem";
+
+
+    }  */
+    /*if (title.textContent.length>18) {
+     // Reduce the font size of the title
+     title.style.fontSize = "1.3rem";
+
+
+    }  */
+
+
+ })
+
+
+
+
+</script>
+ 
