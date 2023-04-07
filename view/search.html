@@ -8,7 +8,7 @@
   <div class="container">
     <div >
   
-        <h1 class="text-center" style="color: rgb(120, 0, 0);margin-bottom: 2%;" id="title">Games</h1>
+        <h1 class="text-center" id="title">Games</h1>
       
     </div>
 
@@ -46,13 +46,13 @@
 
 <style>
   body{
-    background-color: rgb(102, 155, 188);
+    background-color: #B2DCE2;
   }
 
     .card{
         height: 350px;
-        border: 2px solid rgb(253, 240, 213);
-        box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+        border: 3px solid rgb(5, 44, 83);
+       box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     
     }
 
@@ -62,13 +62,14 @@
        
     }
 
-    #title {
-        color: rgb(120, 0, 0);
-        margin-bottom: 2%;
-        background: linear-gradient(to right, #e21635, #4d102e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+  
+#title{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(5, 44, 83);
+  margin-top: 3%;
+  margin-bottom: 3%;
+  text-align: center;
+}
 
 </style>
  
@@ -93,9 +94,9 @@
   
       // create an image element
     
-      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522720833596/browser.png";  
-      image.height = "48";
-      image.width = "48";
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1093328465916342312/icons8-website-48.png";  
+      image.height = "40";
+      image.width = "40";
       
       // replace the existing text with the image
       info.textContent = "";
@@ -104,9 +105,9 @@
     }if(info.textContent == 'PC (Windows)') {
   
       // create an image element
-      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1091713522951540736/pc.png";
-      image.height = "48";
-      image.width = "48";
+      image.src = "https://cdn.discordapp.com/attachments/1029695073018982471/1093324820353134592/icons8-pc-game-64.png";
+      image.height = "40";
+      image.width = "40";
       
       // replace the existing text with the image
       info.textContent = "";
