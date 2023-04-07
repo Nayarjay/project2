@@ -8,7 +8,7 @@
 
       <div class="jumbotron jumbotron-fluid" style="margin-top: 10%;">
         <div class="container container-fluid " >
-          <h1 class="display-4">Top Free Games for Browser In 2023!</h1>
+          <h1 class="display-4">Top Free Games In 2023!</h1>
           
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -37,7 +37,9 @@
             </button>
           </div>
 
-            <div class="row" style="margin-top: 10%;">
+            <div class="row" style=" margin-left: 5%;">
+              <h1 class="display-4">Games Recently Addedd</h1>
+
               {{#games}}
               <div class="col">
                 <!--<a href="/read/{{id}}" style="text-decoration: none;color: rgb(246, 244, 241);">-->
@@ -106,8 +108,9 @@
   padding: 0 10px;*/
 }
 .card{
+  width: 255px;
   height: 255px;
-  border: 2px solid rgb(7, 7, 7);
+  border: 3px solid rgb(5, 44, 83);
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
 }
 
@@ -125,7 +128,19 @@
 
 .carousel-inner {
   width: 90%;
+  border-radius: 2%;
   margin: 0 auto;
+  box-shadow: -5px 0px 5px rgb(5, 44, 83),
+              5px 0px 5px rgb(5, 44, 83),
+              0px -5px 5px rgb(5, 44, 83),
+              0px 5px 5px rgb(5, 44, 83);
+}
+.display-4 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(5, 44, 83);
+  margin-top: 6%;
+  margin-bottom: 3%;
+  text-align: center;
 }
 </style>
 
@@ -168,35 +183,3 @@
     }
   });
   </script>
-
-<script>
-
-        
-  //const title2 = document.getElementById("title2");
-  var title2 = document.querySelectorAll("#title2");
-
-
- title2.forEach(function(title) {
-  
-    //console.log(title.textContent);
-   /*if (title.textContent.length>12) {
-     // Reduce the font size of the title
-     title.style.fontSize = "1rem";
-
-
-    }  */
-    /*if (title.textContent.length>18) {
-     // Reduce the font size of the title
-     title.style.fontSize = "1.3rem";
-
-
-    }  */
-
-
- })
-
-
-
-
-</script>
- 
