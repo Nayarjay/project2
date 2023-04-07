@@ -153,7 +153,7 @@ app.get('/read/:id', (req, res) => {
       Promise.all([gameExistsPromise])
         .then(function([gameExists]) {
 
-          //entry = {id: response.id, title: response.title, description: response.description, game_url: response.game_url, thumbnail: response.thumbnail,short_description: response.short_description ,publisher:response.publisher,release_date:response.release_date,genre:response.genre,gameExists: gameExists};
+        
           entry = {results:response,gameExists: gameExists};
 
           console.log(entry)
@@ -193,7 +193,7 @@ app.get('/favorite',is_authenticated, (req, res) => {
   
 app.get('/update/:id',is_authenticated, (req, res) => {
   var entry = model.read(req.params.id);
-  //res.render('update',{name:  req.session.name });
+
   res.render('update', entry);
 });
 
@@ -257,11 +257,14 @@ app.get('/userexist', (req, res) => {
 });
 app.post('/new_user', (req, res) => {
   const { name, password } = req.body;
- 
+
   let result = model.new_user(name, password);
+  let check =model.checkLoginInput(name,password)
   if (result == 3) {
     return res.redirect('/userexist');
   } else if (result != null) {
+    req.session.userid= check.id;
+    req.session.name=check.name;
     return res.redirect('/');
   }
 });
