@@ -70,7 +70,7 @@ app.get('/', (req, res) => {
   .then(function(response2) {
     //found = { games: response2 };
     //res.render('index', foundpc );
-    model.responseApi3(model.getTop10()) 
+    model.responseApi3(model.getPopular()) 
     .then(function(response) {
       
       var firstGame = response.shift();

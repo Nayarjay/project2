@@ -57,6 +57,8 @@ function addtofavorite(iduser,idgame,thumbnail,description,title){
 
 }
 
+
+
 async function checkIfGameIsInFavorites(userId, gameId) {
   const sql = 'SELECT * FROM favorite WHERE iduser = ? AND idgame = ?';
   const stmt = db.prepare(sql);
@@ -125,7 +127,7 @@ function getGamesByPlateform(){
 }
 
 
-function getTop10(popularity){
+function getPopular(popularity){
    return options = {
         method: 'GET',
         url: 'https://free-to-play-games-database.p.rapidapi.com/api/games',
@@ -183,7 +185,7 @@ module.exports = {
     GetGamesByTag,
     getGameDetails,
     responseApiSearchBar,
-    getTop10,
+    getPopular,
     GetGameList,
     responseApi2,
     getGameDetails,
@@ -200,6 +202,8 @@ module.exports = {
 
 };
 
+
+//responseApi3 is used to get all  games and is filtred by a list of game tag and excluses some specific game 
 
 function responseApi2(options) {
   const excludedGenres = ['Shooter', 'MOBA', 'mmofps', 'mmotps', 'mmorts', 'horror', 'ARPG', 'MMORPG'];
@@ -248,6 +252,7 @@ function responseApiSearchBar(title, options) {
   });
 }
 
+//responseApi3 is used to get only 21 element of game and is filtred by a list of game tag and excluses some specific game 
 
 function responseApi3(options) {
   const excludedGenres = ['Shooter', 'MOBA', 'mmofps', 'mmotps', 'mmorts', 'horror', 'ARPG', 'MMORPG'];
@@ -273,29 +278,8 @@ function responseApi3(options) {
 
 
 
-//responseApi2(getGamesByPlateform('pc'));
-
-//responseApi2(GetGamesByTag('mmorpg','pc'))
-//responseApiSearchBar("Valo",GetGameList());
-
-
-//getGameDetails(5)
-//GetGamesByTag('mmorpg','browser');
-//responseApi2(GetGamesByTag('mmorpg','browser'));
-
-//GetGameList();
-
-//console.log(responseApi2(10,getTop10()));
-//console.log(responseApi3(2, {url: 'https://jsonplaceholder.typicode.com/todos'}))
-
-
-
-
-
-//const axios = require("axios");
-
-//const axios = require("axios");
-console.log(Date.now())
+// get clear date format readable by a human
+//console.log(Date.now())
 function getnowDate(){
   const now = new Date();
   const year = now.getFullYear();
@@ -309,9 +293,3 @@ function getnowDate(){
   console.log(formattedDate);
 } 
 
-/*getGameDetails(475).then(function(response){
-  console.log(response)
-})*/
-//console.log(getnowDate());
-
-//getFlashGamesList();
