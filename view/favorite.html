@@ -97,3 +97,12 @@
   
 
 {{> footer}}
+
+<script>
+  const results = document.querySelectorAll("#title2");
+  if (results.length === 0) {
+    const footer = document.querySelector("footer");
+    footer.style.position = "static"; 
+    footer.style.marginTop = "50vh"; 
+  }
+</script>
