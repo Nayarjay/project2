@@ -218,7 +218,7 @@ function responseApi2(options) {
              ;
     });
 
-    //console.log(filteredData);
+    
     return filteredData.slice(0, response.data.length);
   }).catch(function(error) {
     console.error(error);
@@ -241,7 +241,7 @@ function responseApiSearchBar(title, options) {
 
     filteredData.forEach(obj => {
       if (obj.title.toUpperCase().includes(capitalizedWord) && obj.title !="Epic Cards Battle" && obj.title !="5Street"&& obj.title !="Deathverse: Let It Die") {
-        //console.log(obj)
+       
         list.push(obj);
       }
     });
@@ -267,7 +267,7 @@ function responseApi3(options) {
              ;
     });
 
-    //console.log(filteredData);
+
     return filteredData.slice(0, 21);
   }).catch(function(error) {
     console.error(error);
