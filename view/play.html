@@ -26,7 +26,11 @@
                     src="{{url}}">
                 </iframe>
          
-          <div style="width:700px;border-radius: 1%;color: rgb(253, 240, 213);"><h3  style="overflow-wrap:break-word;margin-top: 2%;">{{description}}</h3></div>
+          <div style="border-radius: 1%;color: rgb(5, 44, 83); display: flex; margin-top: 30px; margin-bottom: 30px; justify-content: center;">
+            <img src="{{thumbnail}}" style="width: 300px; height: 300px; border-radius: 2%; border: 3px solid rgb(5, 44, 83);">
+            <h4  style="overflow-wrap:break-word;margin-top: 2%; width: 700px; padding-left: 50px;">{{description}}</h4>
+
+          </div>
         </div>
 
 
@@ -67,9 +71,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 100vh;
         margin: 0;
-       
         flex-direction: column;
        
     }
@@ -80,16 +82,16 @@
         display: block;
     }
     #title {
-        color: rgb(120, 0, 0);
-        margin-bottom: 2%;
-        background: linear-gradient(to right, #e21635, #4d102e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color: rgb(5, 44, 83);
+        margin-top: 6%;
+        margin-bottom: 3%;
+        text-align: center;
     }
 
 
     #inlineFrameExample {
-        border: none;
+        animation: mymove 2s infinite;
         border-radius: 10px;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
         width: 100%;
@@ -97,7 +99,13 @@
         background-color: #f9f9f9;
         overflow: hidden;
         position: relative;
+        border: 5px solid rgb(123, 159, 197);
+
     }
+    @keyframes mymove {
+	
+    60% {border-color:rgb(5, 44, 83);}
+  }
     #inlineFrameExample:before {
         content: "";
         position: absolute;
