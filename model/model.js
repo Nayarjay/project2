@@ -2,7 +2,7 @@
 const bcrypt = require('bcrypt');
 const axios = require("axios");
 const Sqlite = require('better-sqlite3');
-let db = new Sqlite('controller/db.sqlite');
+let db = new Sqlite('../controller/db.sqlite');
 const fetch = require("node-fetch");
 
 
